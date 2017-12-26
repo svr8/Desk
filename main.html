@@ -1,0 +1,176 @@
+<!doc html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Desks</title>
+        <!-- For ELECTRON -->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        
+        <!-- jQuery -->
+        <script src="thirdparty/jquery.min.js"></script>
+        
+        <!-- Main -->
+        <link rel="stylesheet" type="text/css" href="style/main.css">
+        <script src="js/script.js"></script>
+        <script src="ideTools.js"></script>
+
+        <!-- File Manager -->
+        <script src="filemanager.js"></script>
+
+        <!-- UI Componenets -->
+        <link rel="stylesheet" type="text/css" href="style/ui-components.css">
+        <script src="js/sidemenu.js"></script>
+        <script src="js/tab-projectfolder.js"></script>
+        <script src="js/tab-folder.js"></script>                        
+        <script src="js/tab-working.js"></script>                
+        <script src="js/tab-file.js"></script>        
+        <script src="js/image.js"></script>
+
+        <!-- For ELECTRON-->
+        <script>if (window.module) module = window.module;</script>
+
+        <style>
+ </style>
+        
+    </head>
+    <body onload='initialise()'>
+
+        <div id="elementName"></div>
+        
+        <div class="Sidebar">
+            <!-- Main Menu -->
+            <div class="Sidebar-Button" id="sidebar-MainMenu"></div>
+
+            <!-- Current Folder -->
+            <div class="Sidebar-Button" id="sidebar-CurrentFolder"></div>
+
+            <!-- Open Folders -->
+            <div class="Sidebar-Button" id="sidebar-OpenFolders"></div>
+
+            <!-- Compile -->
+            <div class="Sidebar-Button" id="compileBtn"></div>
+
+            <!-- Run -->
+            <div class="Sidebar-Button" id="runBtn"></div>
+
+            <!-- Run -->
+            <div class="Sidebar-Button" id="stopBtn"></div>
+        </div>
+
+        <div class="Sidemenu">
+            <div id="CurrentFolder">
+                <!-- Title: Working Files -->
+                <div class="Tab-Fixed">Working Files</div>
+
+                <!-- Vertical List: Working Files -->
+                <div id="WorkingFileListContainer"></div>
+
+                <!-- Vertical List: Current Directory -->
+                <div id="CurrentProjectContainer"></div>
+            </div>
+            <div id="OpenFolders">
+                <!-- Menu Title -->
+                <div class="Tab-Fixed">Open Folders</div>
+
+                <!-- Button: Open New Folder -->
+                <div id="Button-OpenFolder">+</div>
+
+                <!-- Vertical List: Opened Folders -->
+                <div id="OpenFolderListContainer"></div>
+            </div>
+        </div>
+
+        <div class="MainMenu">
+            <div class="IOContainer">
+                <table>
+                    <tr>
+                        <td>Input File Path:</td>
+                        <td><input id="input-InputPath"></div></td>
+                        <td><button class="chooseBtn" onclick="getInputFilePath()">Choose File</button></td>
+                    </tr>
+                    <tr>
+                        <td>Output File Path:</td>
+                        <td><input id="input-OutputPath"></td>
+                        <td><button class="chooseBtn" onclick="getOutputFilePath()">Choose File</button></td>
+                    </tr>
+                    <tr>
+                        <td>Build File Path:</td>
+                        <td><input id="input-BuildPath"></td>
+                        <td><button class="chooseBtn" onclick="getBuildFilePath()">Choose File</button></td>
+                    </tr>
+                </table>
+                <div id="btn-IOPath" onclick="updateIOFilePath()">UPDATE</div>
+            </div>
+            <div class="KeyBindingsContainer">
+                <PRE>
+                    Ctrl + N : New File
+                    Ctrl + S : Close File
+                    Ctrl + W : Close File
+
+                    Ctrl + B : Toggle Sidemenu
+                    Ctrl + I : Toggle I/O Panel
+                    Ctrl + = : Zoom In
+                    Ctrl + - : Zoom Out
+
+                    Ctrl + 1 : Compile
+                    Ctrl + 2 : Execute
+                </PRE>
+            </div>
+        </div>
+       
+        <pre id="editor"></pre>
+        <div class="IO">
+            <div class="IOBlock">
+                <div class="IO-Header">INPUT</div>
+                <textarea class="IO-Content" id="inputTab"></textarea>
+            </div>
+            <div class="IOBlock">
+                <div class="IO-Header">OUTPUT</div>
+                <textarea class="IO-Content" id="outputTab"></textarea>
+            </div>
+        </div>
+        <!-- load ace -->
+        <script src="thirdparty/ace-builds/src-noconflict/ace.js"></script>
+        <!-- load ace language tools -->
+        <script src="thirdparty/ace-builds/src-noconflict/ext-language_tools.js"></script>
+
+        <script>
+          
+            // trigger extension
+            ace.require("ace/ext/language_tools");
+            var editor = ace.edit("editor");
+            editor.session.setMode("ace/mode/java");
+            editor.setTheme("ace/theme/monokai");
+
+            // enable autocompletion and snippets
+            editor.setOptions({
+                enableBasicAutocompletion: true,
+                enableSnippets: true,
+                enableLiveAutocompletion: true,
+
+                fontSize: '20px'
+            });
+            
+            function getData() {
+                return editor.getSession().getValue();
+            }
+            function setData(data) {
+                editor.setValue(data, 1);
+            }
+            // function setLanguage(language) {
+            //     editor.session.setMode("ace/mode/"+language);
+            // }
+            function focusOnEditor() {
+                editor.focus();
+                editor.gotoLine(0);
+            }
+            
+        </script>
+
+    </body>
+    <script>
+            require('./filemanager.js')
+            require('./ideTools.js')
+    </script>
+</html>

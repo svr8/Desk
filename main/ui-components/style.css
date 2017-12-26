@@ -1,0 +1,145 @@
+.Button-CloseTab
+{
+    position: relative;
+    left: 5px;
+    top: 5px;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    line-height: 30px;
+
+    display: inline-block;
+
+    background-image: url('../../images/Button-CloseTab-Def.png');
+    background-size: cover;
+    transition: 0.3s;
+}
+.Button-CloseTab:hover
+{
+    background-image: url('../../images/Button-CloseTab-Sel.png');    
+}
+
+.Button-ToggleFolder
+{
+    position: relative;
+    left: 5px;
+    top: 5px;
+    height: 20px;
+    width: 20px;
+    vertical-align: middle;
+    line-height: 30px;
+
+    display: inline-block;
+    transition: 0.2s;
+
+    background-image: url('../../images/Button-ToggleFolder.png');
+    background-size: cover;
+}
+.Button-ToggleFolder:first-child
+{
+    display: none;
+}
+
+.Text-Tab
+{
+    position: absolute;
+    left: 32px;
+    top: 0px;
+    height: 30px;
+    width: auto;
+    vertical-align: middle;
+    line-height: 30px;
+}
+.Tab-Fixed
+{
+    position: relative;
+    top:10px;
+    width: 198px;
+    height: 30px;
+
+    text-transform: uppercase;
+    font-family: TitleFont;
+    font-size: 20pt;
+    margin: 2px;
+
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    
+    padding-bottom: 1px;
+    border-bottom: 1px solid white;
+}
+
+.Tab-ProjectFolder
+{
+    position: relative;
+    top:0px;
+    width: auto;
+    height: 30px;
+
+    line-height: 30px;
+    font-family: DirectoryFont;
+    
+    display: block;
+    cursor: pointer;
+}
+.Tab-WorkingFile
+{
+    position: relative;
+    top:0px;
+    width: auto;
+    height: 30px;
+
+    line-height: 30px;
+    font-family: DirectoryFont;    
+    
+    display: block;
+    cursor: pointer;
+}
+.Tab-File
+{
+    position: relative;
+    top:0px;
+    width: auto;
+    height: 30px;
+
+    line-height: 30px;
+    font-family: DirectoryFont;    
+    
+    display: block;
+    cursor: pointer;
+}
+.Tab-Folder
+{
+    position: relative;
+    top:0px;
+    width: auto;
+    height: auto;
+
+    line-height: 30px;
+    font-family: DirectoryFont;    
+    
+    display: block;
+    cursor: pointer;
+}
+
+
+div[class^="Tab-"]
+{
+    white-space: nowrap;
+    overflow: hidden;
+}
+.TargetWrap
+{
+    position: relative;
+    top:0px;
+    left:0px;
+    width: auto;
+    height: 30px;
+    padding: 2px;
+    border-radius: 4px;
+}
+.TargetWrap:hover
+{
+    background-color: rgb(32,32,32);
+}

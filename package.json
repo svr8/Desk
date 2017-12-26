@@ -1,0 +1,33 @@
+{
+  "name": "desks",
+  "version": "1.0.0",
+  "description": "Light-weight IDE",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "pack": "build --dir"
+  },
+  "build": {
+    "appId": "svr8.Desks",
+    "productName": "Desks"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svr8/Desks.git"
+  },
+  "keywords": [
+    "light-weight",
+    "editor",
+    "ide"
+  ],
+  "author": "Shikhar Vaish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/svr8/Desks/issues"
+  },
+  "homepage": "https://github.com/svr8/Desks#readme",
+  "devDependencies": {
+    "electron": "^1.7.10"
+  },
+  "dependencies": {}
+}

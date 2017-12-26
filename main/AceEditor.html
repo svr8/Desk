@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Desks</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+    
+    #editor { 
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 400px;
+        height: 400px;
+    }
+  </style>
+</head>
+<body>
+
+<pre id="editor">lalala</pre>
+
+<!-- load ace -->
+<script src="thirdparty/ace-builds/src-noconflict/ace.js"></script>
+<!-- load ace language tools -->
+<script src="thirdparty/ace-builds/src-noconflict/ext-language_tools.js"></script>
+
+<script>
+    // trigger extension
+    ace.require("ace/ext/language_tools");
+    var aceEditor = ace.edit("editor");
+    aceEditor.session.setMode("ace/mode/java");
+    aceEditor.setTheme("ace/theme/monokai");
+
+    // enable autocompletion and snippets
+    aceEditor.setOptions({
+        enableBasicAutocompletion: true,
+        enableSnippets: true,
+        enableLiveAutocompletion: true
+    });
+
+
+    
+</script>
+
+</body>
+</html>
