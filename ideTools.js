@@ -53,13 +53,7 @@ function run() {
     //Execute code
     executeRun(fileAbsolutePath, fileContainerPath, fileName);
 }
-function stop() {
-    execute('Taskkill /IM java.exe /F', function(error, stderr, stdout) {
-        displayCompileResults(error, stderr, stdout);
-        $('#outputTab').val('Process Stopped!');
-        stopPressed = false;
-    });
-}
+
 function displayCompileResults(error, stderr, stdout) {
     var out = '';
     // if(error!=null)

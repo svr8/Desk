@@ -8,7 +8,7 @@ var slash = (os.type() == 'Windows_NT') ? '\\' : '/';
 
 //Load user session data
 var usrFilePath = './usr.json';
-var usr = require(usrFilePath);
+var usr = require('./usr.json');
 
 var randomIndex = 0;
 

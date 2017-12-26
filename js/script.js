@@ -231,7 +231,7 @@ function showMainMenu(state) {
         
 }
 function updateSessionData(notifyUpdate) {
-    fs.writeFile(usrFilePath, JSON.stringify(usr), (err) => {
+    fs.writeFile('usr.json', JSON.stringify(usr), (err) => {
         if (err) {
             alert("File update: unsuccessful!\n" + err.message);
             return;

@@ -8,3 +8,10 @@ function executeRun(fileAbsolutePath, fileContainerPath, fileName) {
         displayRunResults(error, stderr, stdout);
     });
 }
+function stop() {
+    execute('Taskkill /IM java.exe /F', function(error, stderr, stdout) {
+        displayCompileResults(error, stderr, stdout);
+        $('#outputTab').val('Process Stopped!');
+        stopPressed = false;
+    });
+}
