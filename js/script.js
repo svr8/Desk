@@ -218,6 +218,7 @@ $(document).ready(function(){
                           break;
                 default : break;
             }
+            isCtrl = false;
         }
     });
     $(window).resize(function(){
