@@ -29,5 +29,8 @@
   "devDependencies": {
     "electron": "^1.7.10"
   },
-  "dependencies": {}
+  "dependencies": {
+    "electron-json-config": "^1.5.0",
+    "electron-packager": "^10.1.0"
+  }
 }

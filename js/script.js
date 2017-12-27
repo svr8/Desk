@@ -1,13 +1,23 @@
-const {webFrame} = require('electron')
+const {webFrame} = require('electron');
+const configFile = require('electron-json-config');//*
+
+//Default Configs
+var config = {
+    "inputFilePath":"balle",
+    "outputFilePath":"",
+    "curZoom":"1",
+    "language":"java",
+    "buildFilePath":"shava",
+    "projectFolders":[]
+}
+
 var curZoom = 1,
     changeZoomBy = 0.2;
 
 var ioPanelIsVisible = false;
 var mainMenuIsVisible = false;
 var isCtrl = false;
-function isHovering(selector) {
-    return $(selector).data('hover')?true:false; //check element for hover property
-}
+
 function initialise() {
     loadDefaultValues();
     initialiseSidebar();
@@ -15,18 +25,6 @@ function initialise() {
     //Set default state of IO Panel
     showIOPanel(ioPanelIsVisible);
 
-    //Get IO File Paths
-    $("#input-InputPath").val(inputFile.path);
-    $("#input-OutputPath").val(outputFile.path);
-    
-    //Update data if file exists
-    if(fs.existsSync(inputFile.path))
-        fileRead(inputFile, function(data){
-            $("#inputTab").text(data);
-        });
-    
-    //Set default zoom value
-    webFrame.setZoomFactor(curZoom);
 
     //Style: IO-Content
     var ta = document.getElementsByClassName('IO-Content');
@@ -134,8 +132,24 @@ function initialise() {
         $('.Sidemenu::-webkit-scrollbar').fadeOut(200);
     });
 
-}
 
+    //Get IO File Paths
+    $("#input-InputPath").val(inputFile.path);
+    $("#input-OutputPath").val(outputFile.path);
+    
+    //Update data if file exists
+    if(fs.existsSync(inputFile.path))
+        fileRead(inputFile, function(data){
+            $("#inputTab").text(data);
+        });
+    
+    //Set default zoom value
+    webFrame.setZoomFactor(curZoom);
+
+}
+function isHovering(selector) {
+    return $(selector).data('hover')?true:false; //check element for hover property
+}
 jQuery.fn.rotate = function(degrees) {
     $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
                  '-moz-transform' : 'rotate('+ degrees +'deg)',
@@ -152,8 +166,6 @@ function hideElementName() {
     $('#elementName').fadeOut(150);
 }
 $(document).ready(function(){
-
-    
     //MOUSE EVENT LISTENERS:
     //MainMenu-Button
     $('#sidebar-MainMenu').on('click', function(){
@@ -161,7 +173,6 @@ $(document).ready(function(){
     });
 
     //KEYBOARD SHORTCUT LISTENRS:
-
     $('body').on('keyup', function(e){
         if(e.ctrlKey) isCtrl = false;
     });
@@ -231,15 +242,10 @@ function showMainMenu(state) {
         
 }
 function updateSessionData(notifyUpdate) {
-    fs.writeFile('usr.json', JSON.stringify(usr), (err) => {
-        if (err) {
-            alert("File update: unsuccessful!\n" + err.message);
-            return;
-        }
-        if(notifyUpdate)
-            console.log("File update: successful!");
-    });
-   
+    //*
+    configFile.set('config', config);
+    if(notifyUpdate)
+        console.log('Settings updated successfully');
 }
 function getInputFilePath() {
     getFilePath(function(path) {
@@ -257,18 +263,18 @@ function getBuildFilePath() {
     });
 }
 function updateIOFilePath() {
-    usr.inputFilePath = inputFile.path = $('#input-InputPath').val();
-    usr.outputFilePath = outputFile.path = $('#input-OutputPath').val();
-    usr.buildFilePath = $('#input-BuildPath').val();
-    loadBuildFile(usr.buildFilePath);    
+    config.inputFilePath = inputFile.path = $('#input-InputPath').val();
+    config.outputFilePath = outputFile.path = $('#input-OutputPath').val();
+    config.buildFilePath = $('#input-BuildPath').val();
+    loadBuildFile(config.buildFilePath);            
     updateSessionData(true);
     alert('Path has been updated.');
 }
 function updateProjectFolderPath() {
     var size=projectFolderRecord.length;
-    usr.projectFolders = [];
+    config.projectFolders = [];
     for(var i=0;i<size;i++)
-        usr.projectFolders.push(projectFolderRecord[i].path);
+        config.projectFolders.push(projectFolderRecord[i].path);
     updateSessionData(false);
 }
 
@@ -277,7 +283,7 @@ function zoomIn() {
     curZoom += changeZoomBy;
     webFrame.setZoomFactor(curZoom);
 
-    usr.curZoom = curZoom;
+    config.curZoom = curZoom;
     updateSessionData(false);    
 }
 function zoomOut() {
@@ -285,29 +291,35 @@ function zoomOut() {
     curZoom -= changeZoomBy;
     webFrame.setZoomFactor(curZoom);
 
-    usr.curZoom = curZoom;
+    config.curZoom = curZoom;
     updateSessionData(false);        
 }
 function loadDefaultValues() {
+    //*
+    if(configFile.has('config')) //When application loads for the first time
+        config = configFile.get('config');
+    else
+        configFile.set('config', config);
+    
     //IO File Path
-    inputFile.path = usr.inputFilePath;
+    inputFile.path = config.inputFilePath;
     $('#input-InputPath').val(inputFile.path);
     
-    outputFile.path = usr.outputFilePath;
+    outputFile.path = config.outputFilePath;
     $('#input-OutputPath').val(outputFile.path);
 
     //Zoom Level
-    curZoom = usr.curZoom;
+    curZoom = config.curZoom;
 
     //Load Build File
-    loadBuildFile(usr.buildFilePath);
-    $('#input-BuildPath').val(usr.buildFilePath);
+    loadBuildFile(config.buildFilePath);
+    $('#input-BuildPath').val(config.buildFilePath);
 
     //Load Language
-    // setLanguage(usr.language);
+    // setLanguage(config.language);
 
     //Project Folders
-    var openProjects = usr.projectFolders;
+    var openProjects = config.projectFolders;
     var size = openProjects.length;
     for(var i=0;i<size;i++)
         if(fs.existsSync(openProjects[i]))
