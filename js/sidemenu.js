@@ -64,7 +64,7 @@ function showSideMenuContainer(state) {
     }
     else {
         $(".Sidemenu").hide();
-            
+        selectSideMenu(nullSideMenu);
         //Reposition/Resize .Editor, .IO
         $("#editor, .IO").css("left", $('.Sidebar').width());
         $("#editor, .IO").width($(window).width()-$('.Sidebar').width())+1;

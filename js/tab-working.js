@@ -60,6 +60,7 @@ function selectWorkingFile(file) {
     curFile.isFocused = true; //toggle Focus status
     $('#WT-'+curFile.id+' .TargetWrap').css('background-color', 'rgb(32,32,32)'); //edit css of curFile
     setData(curFile.data);    //load file data
+    showEditor(true);         //display editor
 
     focusOnEditor();
 }
@@ -91,5 +92,14 @@ function closeWorkTab(file) {
     if(workfileRecordSize>0)
         selectWorkingFile(workfileRecord[0]);
     else
-        setData('');
+        showEditor(false);
+}
+
+var isEditorVisible = false;
+function showEditor(status) {
+    isEditorVisible = status;
+    if(isEditorVisible)
+        $('#editor').show();
+    else
+        $('#editor').hide();
 }

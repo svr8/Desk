@@ -25,6 +25,8 @@ function initialise() {
     //Set default state of IO Panel
     showIOPanel(ioPanelIsVisible);
 
+    //Set default state of Editor
+    showEditor(isEditorVisible);
 
     //Style: IO-Content
     var ta = document.getElementsByClassName('IO-Content');
