@@ -113,7 +113,7 @@ function initialise() {
                 timer = null
             }
             timer = setTimeout(function() {
-                if(isHovering( $('stopBtn') ))
+                if(isHovering( $('#stopBtn') ))
                     showElementName(e, 'Stop');                
             }, 1000)
         }, function(){
