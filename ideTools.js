@@ -24,13 +24,12 @@ function compile() {
     saveFile(curFile);
     
     //Status Update
-    console.log('Compiling...');
     $('#outputTab').val('Compiling...');
     
     //Show IO Panel
     showIOPanel(true);
 
-    //Compile code
+    //Execute compile code from "buildFilePath"
     executeCompile(fileAbsolutePath, fileContainerPath, fileName);
     $('#outputTab').val('');
 }
@@ -44,13 +43,12 @@ function run() {
     saveFile(inputFile);
 
     //Status Update    
-    console.log('Executing...');
     $('#outputTab').val('Executing...');
 
     //Show IO Panel
     showIOPanel(true);
     
-    //Execute code
+    //Execute run code from "buildFilePath"
     executeRun(fileAbsolutePath, fileContainerPath, fileName);
 }
 

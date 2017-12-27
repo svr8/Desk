@@ -3,11 +3,11 @@ const configFile = require('electron-json-config');//*
 
 //Default Configs
 var config = {
-    "inputFilePath":"balle",
+    "inputFilePath":"",
     "outputFilePath":"",
     "curZoom":"1",
     "language":"java",
-    "buildFilePath":"shava",
+    "buildFilePath":"",
     "projectFolders":[]
 }
 
@@ -103,7 +103,7 @@ function initialise() {
             }
             timer = setTimeout(function() {
                 if(isHovering( $('#runBtn') ))
-                    showElementName(e, 'Run');                
+                    showElementName(e, 'Execute');                
             }, 1000)
         }, function(){
         });
