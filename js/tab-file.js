@@ -22,6 +22,7 @@ function addFile(parent, file) {
     $(el).on("click", function() {
         console.log("File opened: "+file.name);
         var wt = new WorkingTab(file.id, file.path);
+        wt.exists = true;
         addWorkingFile(wt);
         fileRead(file, function(data){
             wt.data = data;
