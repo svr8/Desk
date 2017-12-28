@@ -35,10 +35,10 @@
     background-image: url('../images/Button-ToggleFolder.png');
     background-size: cover;
 }
-.Button-ToggleFolder:first-child
+/* .Button-ToggleFolder:first-child
 {
     display: none;
-}
+} */
 
 .Text-Tab
 {
@@ -139,7 +139,7 @@ div[class^="Tab-"]
     padding: 2px;
     border-radius: 4px;
 }
-.TargetWrap:hover
+.TargetWrap:hover, .SelectedFolder
 {
     background-color: rgb(32,32,32);
 }

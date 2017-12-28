@@ -1,6 +1,6 @@
 var slideAnimationSpeed = 60;
-var folderFocus;
 var folderRecord = [];
+var curFolder = null;
 function FolderTab(id, absolutePath) {
     this.id = id;
     this.path = absolutePath;
@@ -41,12 +41,14 @@ function addFolder(parent, folder) {
     subDirContainer.slideUp();
 
     //Toggle Folder Dropdown
-    targetWrap.on("click", function(){
+    targetWrap.on("click", function(){ 
+        selectFolder(folder);
         if(folder.isExpanded) 
             collapseFolder(folder);
         else 
             expandFolder(folder);
     });
+    
 }
 
 function collapseFolder(folder) {
@@ -57,6 +59,7 @@ function collapseFolder(folder) {
 
     //Hide content
     subDirContainer.slideUp(slideAnimationSpeed);
+   
     //Rotate image
     targetWrap.find(".Button-ToggleFolder").rotate(0);
     
@@ -148,4 +151,15 @@ function deleteFolders(folders) {
         }
     }
 }
+function selectFolder(folder) {
+    var el;
+    if(curFolder!=null) {
+        el = $('#FD-'+curFolder.id+" .TargetWrap").first();
+        el.removeClass('SelectedFolder');
+    }
+    
+    curFolder = folder;
 
+    el = $('#FD-'+curFolder.id+" .TargetWrap").first();
+    el.addClass('SelectedFolder');
+}

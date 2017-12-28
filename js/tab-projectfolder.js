@@ -30,7 +30,7 @@ function addProjectFolder(projectFolder) {
     //Get DOM Element
     var el = $("#PF-"+projectFolder.id);
     
-    //Close Tab
+    //Close Project
     $($(el).find(".Button-CloseTab")).on("click", function(){
         //Delete from page
         $(el).remove();
@@ -56,19 +56,20 @@ function addProjectFolder(projectFolder) {
             //Load Folder
             var fd = new FolderTab(projectFolder.id, projectFolder.path);            
             addFolder('#CurrentProjectContainer', fd);
-            folderFocus = fd;
+            selectFolder(fd);
             expandFolder(fd);            
 
             //Select Sidemenu: CurrentFolder
             selectSideMenu(sidemenu[0]);
-            //First Folder
+            
+            //Style Root Folder Tab
             var el = $('.Tab-Folder .TargetWrap .Text-Tab').first();
             el.css({"left":"0px","width":"198px","text-align":"center","font-family":"TitleFont", "font-size":"20pt",
             "margin": "2px","border-bottom":"1px solid white"});
-            el = $('.Tab-Folder .TargetWrap').first()
-            el.on('mouseenter', function(){
-                el.css('background-color', 'transparent');
-            });
+            el = $('.Tab-Folder .TargetWrap').first();
+            el.css('width', '196px');
+            el = $('.Tab-Folder').first().find('.Button-ToggleFolder').first();
+            el.hide();
         });        
     });
     
