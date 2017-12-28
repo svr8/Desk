@@ -342,7 +342,7 @@ body
     display: inline-block;
     cursor: pointer;
 }
-#create-new-file 
+/* #create-new-file 
 {
     background-image: url('../images/CreateNewFile-Def.png');
     background-size: cover;
@@ -359,7 +359,7 @@ body
 #create-new-folder:hover
 {
     background-image: url('../images/CreateNewFolder-Sel.png');
-}
+} */
 
 #FolderContainer
 {
