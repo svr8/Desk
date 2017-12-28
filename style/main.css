@@ -214,7 +214,7 @@ body
     /* width: calc(100vw - 260px); */
     height: 100%;
 
-    z-index: 1;
+    z-index: 0;
     transition: 0.3s;
 }
 
@@ -223,10 +223,10 @@ body
     position: absolute;
     bottom: 0px;
     left: 260px;
-    /* width: calc(100vw - 260px); */
+    width: calc(100vw - 260px);
     
     box-shadow: 0px -1px 5px black;
-    z-index: 1;
+    z-index: 0;
     overflow: hidden;
 
     transition: 0.3s;
