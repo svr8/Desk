@@ -1,7 +1,6 @@
 var app = require('electron').remote;
 var dialog = app.dialog;
 var fs = require('fs');
-
 var os = require('os');
 var slash = (os.type() == 'Windows_NT') ? '\\' : '/';
 
@@ -77,8 +76,10 @@ function createNewFile(file) {
                 console.log("File create: successful!");
                 file.path = path;
                 file.name = getDirectoryName(file.path);
+                file.exists = true;
                 $("#WT-"+file.id+" .Text-Tab").html(file.name);
-                reloadFolder(folderReference(getDirectoryParentPath(file.path)))
+                reloadFolder(folderReference(getDirectoryParentPath(file.path)));
+                reloadWorkFiles();
             }
         });
     });
@@ -89,7 +90,7 @@ function getDirectoryContents(folder, callback) {
     console.log("FOLDER READING: "+folder.path);
     fs.readdir(folder.path, (err, dir)=>{
         for(var i=0;i<dir.length;i++) {
-            if(dir[i].indexOf(".")==-1)
+            if(fs.statSync(folder.path+slash+dir[i]).isDirectory())
                 folder.subFolders.push(new FolderTab(randomIndex++, folder.path+slash+dir[i]));
             else
                 folder.subFiles.push(new FileTab(randomIndex++, folder.path+slash+dir[i]));

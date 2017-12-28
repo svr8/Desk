@@ -24,8 +24,10 @@ function addWorkingFile(file) {
     //If file already exists in working container, return
     var recordSize = workfileRecord.length;
     for(var i=0; i<recordSize; i++)
-        if(workfileRecord[i].id==file.id)
+        if(workfileRecord[i].path==file.path) {
+            selectWorkingFile(workfileRecord[i]);
             return;
+        }
 
     //Update sidemenu
     $("#WorkingFileListContainer").append(file.renderHTML());
@@ -102,4 +104,15 @@ function showEditor(status) {
         $('#editor').show();
     else
         $('#editor').hide();
+}
+function reloadWorkFiles() {
+    var l = workfileRecord.length;
+    for(var i=0;i<l;i++) {
+        for(var j=i+1;j<l;j++) {
+            if(workfileRecord[i].path==workfileRecord[j].path) {
+                closeWorkTab(workfileRecord[j]);
+                break;
+            }
+        }
+    }
 }

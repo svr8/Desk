@@ -29,5 +29,4 @@ function addFile(parent, file) {
             selectWorkingFile(wt);
         });
     });
-
 }
