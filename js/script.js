@@ -1,5 +1,5 @@
 const {webFrame} = require('electron');
-const configFile = require('electron-json-config');//*
+const configFile = require('electron-json-config');
 
 //Default Configs
 var config = {
@@ -244,7 +244,7 @@ $(document).ready(function(){
                           setFileSaveStatus(curFile, true);                                                    
                           break;
                 //CTRL + W: Close current tab
-                case 88 : closeWorkTab(curFile);
+                case 87 : closeWorkTab(curFile);
                           break;
                 //CTRL + 1: Compile file
                 case 49 : compile();
@@ -283,11 +283,11 @@ function renderTempTabHTML() {
 function showIOPanel(state) {
     if(state)  {
         $('.IO').css("height", "200px");
-        $("#editor").height($(window).height()-200);        
+        // $("#editor").height($(window).height()-200);        
     }
     else  {
         $('.IO').css("height", "0px");
-        $("#editor").height($(window).height());
+        // $("#editor").height($(window).height());
     }
     ioPanelIsVisible = state;
 }
@@ -300,7 +300,6 @@ function showMainMenu(state) {
         
 }
 function updateSessionData(notifyUpdate) {
-    //*
     configFile.set('config', config);
     if(notifyUpdate)
         console.log('Settings updated successfully');
@@ -353,7 +352,6 @@ function zoomOut() {
     updateSessionData(false);        
 }
 function loadDefaultValues() {
-    //*
     if(configFile.has('config')) //When application loads for the first time
         config = configFile.get('config');
     else
