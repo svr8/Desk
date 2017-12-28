@@ -109,6 +109,19 @@
     display: block;
     cursor: pointer;
 }
+.Tab-Temp {
+    position: relative;
+    left: 25px;
+    width: 200px;
+}
+.Tab-Temp input {
+    font-size:12pt;
+    background-color: rgb(32,32,32);
+    color: white;
+    outline: none;
+    border: none;
+    font-family: Data;
+}
 .Tab-Folder
 {
     position: relative;

@@ -5,7 +5,7 @@ function FileTab(id, absolutePath) {
     // this.image = new Image('Button-DeleteTab', 'images/image.png', 'images/image.png');
 
     this.renderHTML = function() {
-        return '<div class="Tab-File" id="FL-'+this.id+'">'+ '<div class="TargetWrap">'+ '<div class="Text-Tab">'+this.name+'</div>'+ '</div>'+'</div>'; 
+        return '<div class="Tab-File">'+ '<div id="FL-'+this.id+'" class="TargetWrap">'+ '<div class="Text-Tab">'+this.name+'</div>'+ '</div>'+'</div>'; 
     };
 }
 
@@ -29,4 +29,18 @@ function addFile(parent, file) {
             selectWorkingFile(wt);
         });
     });
+}
+
+function isValidNewFile(parentFolder, fileName) {
+    var path = parentFolder.path+slash+fileName;
+    
+    //Check if file exists already
+    if (fs.existsSync(path))
+        return false;
+    
+    //Create new file
+    createNewFileAt(path);
+
+    //Reload sidemenu contents
+    reloadFolder(parentFolder);
 }

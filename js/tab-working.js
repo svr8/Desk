@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-var curFile = new WorkingTab('', '');
+var curFile = null;
 var workfileRecord = [];
 var inputFile=new WorkingTab(-1, ''),
     outputFile=new WorkingTab(-1, '');
@@ -9,10 +9,9 @@ function WorkingTab(id, absolutePath) {
     this.path = absolutePath;
     this.name = getDirectoryName(this.path);
     this.image = new Image('Button-CloseTab', '../images/Button-CloseTab-Def.png', '../Button-CloseTab-Sel.png');
-    this.isSaved = false;
+    this.isSaved = true;
     this.exists = true;
     this.data = '';
-    this.isFocused = false;
 
     this.renderHTML = function() {
         return '<div class="Tab-WorkingFile" id="WT-'+this.id+'">'+ '<div class="TargetWrap">'+ this.image.renderHTML()+ '<div class="Text-Tab">'+this.name+'</div>'+ '</div>'+'</div>'; 
@@ -53,32 +52,55 @@ function addWorkingFile(file) {
 }
 
 function selectWorkingFile(file) {
-    curFile.isFocused = false; //toggle Focus status
-    $('#WT-'+curFile.id+' .TargetWrap').css('background-color', 'inherit'); //edit css of curFile
-    curFile.data = getData();  //store current data
+    if(curFile!=null) {
+        $('#WT-'+curFile.id+' .TargetWrap').css('background-color', 'inherit'); //edit css of curFile
+        curFile.data = getData();  //store current data
+    }
 
     curFile = file;
-
-    curFile.isFocused = true; //toggle Focus status
+    if(curFile==null) return;
+    var curStatus = curFile.isSaved;
     $('#WT-'+curFile.id+' .TargetWrap').css('background-color', 'rgb(32,32,32)'); //edit css of curFile
     setData(curFile.data);    //load file data
     showEditor(true);         //display editor
 
     focusOnEditor();
+    setFileSaveStatus(curFile, curStatus);
 }
+function showSaveFilePrompt(file, status) {
+    if(status)
+        $('.Prompt').fadeIn(150);
+    else
+        $('.Prompt').fadeOut(150);
+    
+    $("#Prompt-Yes").on('click', function() {
+        saveFile(file);
+        removeWorkFileTab(file);
+        $('.Prompt').fadeOut(150);                              
+    });
+    $("#Prompt-No").on('click', function() {
+        removeWorkFileTab(file);  
+        $('.Prompt').fadeOut(150);                        
+    });
+    $('#Prompt-Cancel').on('click', function(){
+        $('.Prompt').fadeOut(150);              
+    });
+}
+
 
 function closeWorkTab(file) {
     file.data = getData();
     file.exists = fs.existsSync(file.path);
     
-    if( (!file.exists && file.data.length>0) || file.exists ) {   
+    if( (!file.exists && file.data.length>0) || !file.isSaved ) {   
         //Save file prompt
-        saveFile(file, file.data);
+        showSaveFilePrompt(file, true);
+        return;
     }
-    
+    removeWorkFileTab(file);
+}
+function removeWorkFileTab(file) {
     var el = $("#WT-"+file.id);
-    
-    //Delete from page
     $(el).remove();
     console.log("WorkFile closed: "+file.name);
 
@@ -91,10 +113,17 @@ function closeWorkTab(file) {
             break;
         }
     }
+
+    //Update file save status
+    setFileSaveStatus(file, true);
+
+    //Toggle File
     if(workfileRecordSize>0)
         selectWorkingFile(workfileRecord[0]);
-    else
+    else {
         showEditor(false);
+        selectWorkingFile(null);
+    }
 }
 
 var isEditorVisible = false;
@@ -114,5 +143,17 @@ function reloadWorkFiles() {
                 break;
             }
         }
+    }
+}
+function setFileSaveStatus(file, status) {
+    file.isSaved = status;
+    console.log(file.id);
+    if(file.isSaved) {
+        $('#FL-'+file.id+' .Text-Tab').first().css('font-weight', 'normal');
+        $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'normal');
+    }
+    else {
+        $('#FL-'+file.id+' .Text-Tab').first().css('font-weight', 'bold');
+        $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'bold');        
     }
 }

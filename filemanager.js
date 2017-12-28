@@ -58,7 +58,17 @@ function saveFile(file) {
             console.log("File update: successful!");
         });
 }
-
+function createNewFileAt(path) {
+    fs.writeFile(path, '', (err) => {
+        if(err)
+            alert('File create: unsccessful!\n'+err.message);
+        else
+            console.log('File create: successful!');
+    });
+}
+function createNewFolderAt(path) {
+    fs.mkdirSync(path);
+}
 function createNewFile(file) {
     //Update Status
     console.log('Creating New File');

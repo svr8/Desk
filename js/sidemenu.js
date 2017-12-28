@@ -54,20 +54,22 @@ function selectSideMenu(menu) {
 function showSideMenuContainer(state) {
     sideMenuIsVisible = state;
     if(sideMenuIsVisible) {
-        $(".Sidemenu").show();
+        $(".Sidemenu").width(214);
         if(curSideMenu==nullSideMenu)
             selectSideMenu(sidemenu[0]);
        
         //Reposition/Resize .Editor, .IO
         $("#editor, .IO").css("left", $('.Sidemenu').offset().left+$('.Sidemenu').width()+3);
         $("#editor, .IO").width($(window).width()-$('.Sidebar').width()-$('.Sidemenu').width()-3);
+        $("#editor").height($(window).height()-(ioPanelIsVisible ? 200 : 0));
     }
     else {
-        $(".Sidemenu").hide();
+        $(".Sidemenu").width(0);
         selectSideMenu(nullSideMenu);
         //Reposition/Resize .Editor, .IO
         $("#editor, .IO").css("left", $('.Sidebar').width());
-        $("#editor, .IO").width($(window).width()-$('.Sidebar').width())+1;
+        $("#editor, .IO").width($(window).width()-$('.Sidebar').width());
+        $("#editor").height($(window).height()-(ioPanelIsVisible ? 200 : 0));        
     }
 }
 function initialiseSidebar() { 

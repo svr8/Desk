@@ -120,6 +120,28 @@ function initialise() {
             }, 1000)
         }, function(){
         });
+        $('#create-new-file').hover(function(e) {
+            if(timer) {
+                clearTimeout(timer);
+                timer = null
+            }
+            timer = setTimeout(function() {
+                if(isHovering( $('#create-new-file') ))
+                    showElementName(e, 'New File');                
+            }, 1000)
+        }, function(){
+        });
+        $('#create-new-folder').hover(function(e) {
+            if(timer) {
+                clearTimeout(timer);
+                timer = null
+            }
+            timer = setTimeout(function() {
+                if(isHovering( $('#create-new-folder') ))
+                    showElementName(e, 'New Folder');                
+            }, 1000)
+        }, function(){
+        });
         
         $('body').on('mousemove', function(){
             hideElementName();
@@ -173,6 +195,32 @@ $(document).ready(function(){
     $('#sidebar-MainMenu').on('click', function(){
         showMainMenu(!mainMenuIsVisible);
     });
+    //Create File Button
+    $('#create-new-file').on('click', function(){
+        var parent = $("#FD-"+curFolder.id).find('.SubDir').first();
+        parent.append(renderTempTabHTML());
+        var el = $('.Tab-Temp input');        
+        el.focus();
+        el.blur(function(){
+            if(isValidNewFile(curFolder, el.val()) || el.val().length==0)
+                $('.Tab-Temp').hide();      
+            else 
+                el.focus();          
+        });
+    });
+    //Create Folder Button
+    $('#create-new-folder').on('click', function(){
+        var parent = $("#FD-"+curFolder.id).find('.SubDir').first();
+        parent.append(renderTempTabHTML());
+        var el = $('.Tab-Temp input');        
+        el.focus();
+        el.blur(function(){
+            if(isValidNewFolder(curFolder, el.val()) || el.val().length==0)
+                el.hide();      
+            else 
+                el.focus();          
+        });
+    });
 
     //KEYBOARD SHORTCUT LISTENRS:
     $('body').on('keyup', function(e){
@@ -185,17 +233,18 @@ $(document).ready(function(){
         if(isCtrl) {
             switch(e.keyCode) {
                 //CTRL + N: Create new file (temporary)
-                case 78 : var wt = new WorkingTab(randomIndex++, 'New File-'+(randomIndex-1));
-                          wt.exists = false;
+                case 78 : var wt = new WorkingTab(randomIndex++, 'New File');
                           addWorkingFile(wt);
                           selectWorkingFile(wt);
+                          setFileSaveStatus(wt, false);                          
                           break;
                 //CTRL + S: Save current file
                 case 83 : curFile.data = getData();
                           saveFile(curFile); 
+                          setFileSaveStatus(curFile, true);                                                    
                           break;
                 //CTRL + W: Close current tab
-                case 87 : closeWorkTab(curFile);
+                case 88 : closeWorkTab(curFile);
                           break;
                 //CTRL + 1: Compile file
                 case 49 : compile();
@@ -228,12 +277,18 @@ $(document).ready(function(){
     });
    
 });
-
+function renderTempTabHTML() {
+    return '<div class="Tab-Temp"><input></div>';
+}
 function showIOPanel(state) {
-    if(state) 
+    if(state)  {
         $('.IO').css("height", "200px");
-    else 
+        $("#editor").height($(window).height()-200);        
+    }
+    else  {
         $('.IO').css("height", "0px");
+        $("#editor").height($(window).height());
+    }
     ioPanelIsVisible = state;
 }
 function showMainMenu(state) {

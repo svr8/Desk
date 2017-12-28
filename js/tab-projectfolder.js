@@ -67,7 +67,7 @@ function addProjectFolder(projectFolder) {
             el.css({"left":"0px","width":"198px","text-align":"center","font-family":"TitleFont", "font-size":"20pt",
             "margin": "2px","border-bottom":"1px solid white"});
             el = $('.Tab-Folder .TargetWrap').first();
-            el.css('width', '196px');
+            el.css({'width': '196px', 'left':'5px'});
             el = $('.Tab-Folder').first().find('.Button-ToggleFolder').first();
             el.hide();
         });        

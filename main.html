@@ -37,7 +37,14 @@
     <body onload='initialise()'>
 
         <div id="elementName"></div>
-        
+        <div class="Prompt">
+            <div class="Prompt-Message">Do you want to save the file before closing it ?</div>
+            <div class="Prompt-Button-Container">
+                <div class="Prompt-Button" id="Prompt-Yes">Yes</div>                
+                <div class="Prompt-Button" id="Prompt-No">No</div>                                
+                <div class="Prompt-Button" id="Prompt-Cancel">Cancel</div>                                                
+            </div>
+        </div>
         <div class="Sidebar">
             <!-- Main Menu -->
             <div class="Sidebar-Button" id="sidebar-MainMenu"></div>
@@ -68,6 +75,12 @@
 
                 <!-- Vertical List: Current Directory -->
                 <div id="CurrentProjectContainer"></div>
+
+                <!-- File Options -->
+                <div id="FileOptions">
+                    <div class="Button-FileOption" id="create-new-file"></div>
+                    <div class="Button-FileOption" id="create-new-folder"></div>                    
+                </div>
             </div>
             <div id="OpenFolders">
                 <!-- Menu Title -->
@@ -148,14 +161,20 @@
                 enableBasicAutocompletion: true,
                 enableSnippets: true,
                 enableLiveAutocompletion: true,
-                fontSize: '20px',
+                fontSize: '20px'
             });
-            
+            editor.$blockScrolling = Infinity;
+            editor.getSession().on('change', function() {
+                if(curFile!=null) 
+                    setFileSaveStatus(curFile, false);
+            });
             function getData() {
-                return editor.getSession().getValue();
+                if(curFile!=null)
+                    return editor.getSession().getValue();
             }
             function setData(data) {
-                editor.setValue(data, 1);
+                if(curFile!=null)
+                    editor.setValue(data, 1);
             }
             // function setLanguage(language) {
             //     editor.session.setMode("ace/mode/"+language);

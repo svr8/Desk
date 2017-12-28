@@ -163,3 +163,16 @@ function selectFolder(folder) {
     el = $('#FD-'+curFolder.id+" .TargetWrap").first();
     el.addClass('SelectedFolder');
 }
+function isValidNewFolder(parentFolder, folderName) {
+    var path = parentFolder.path+slash+folderName;
+    
+    //Check if file exists already
+    if (fs.existsSync(path))
+        return false;
+    
+    //Create new file
+    createNewFolderAt(path);
+
+    //Reload sidemenu contents
+    reloadFolder(parentFolder);
+}

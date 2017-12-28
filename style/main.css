@@ -114,9 +114,81 @@ body
 {
     background-image: url('../images/Stop-Sel.png');
 }
-#toggleIOBtn
+.Prompt
 {
-    background-color: azure;
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    width: auto;
+    height: 120px;
+    overflow: hidden;
+    padding: 4px;
+    font-family: DirectoryFont;
+    color: white;
+    background-color: rgba(32, 32, 32, 0.8);
+    box-shadow: 0px 0px 8px black;
+    border-radius: 8px;
+    z-index: 3;
+
+    display: none;
+}
+.Prompt-Message
+{
+    position: relative;
+    top: 30px;
+    left: 0px;
+    width: 360px;
+    height: auto;
+    font-size: 14pt;
+}
+.Prompt-Button-Container
+{
+    position: relative;
+    top: 40px;
+    left: 80px;
+    width: auto;
+    height: auto;
+}
+.Prompt-Button
+{
+    width: 30px;
+    height: 15px;
+    display: inline-block;    
+    padding: 5px;
+    margin-right: 40px;
+
+    text-align: center;
+    line-height: 15px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: 0.1s;
+    
+}
+#Prompt-Yes
+{
+    background-color: rgb(42, 175, 42);
+}
+#Prompt-Yes:hover
+{
+    background-color: rgb(24, 131, 24);    
+}
+#Prompt-No
+{
+    background-color: rgb(175, 33, 33);
+}
+#Prompt-No:hover
+{
+    background-color: rgb(126, 23, 23);
+}
+#Prompt-Cancel
+{
+    width: 60px;
+    background-color: rgb(58, 58, 58);
+    box-shadow: 0px 0px 2px black;
+}
+#Prompt-Cancel:hover
+{
+    background-color: rgb(43, 43, 43);
 }
 
 .Sidemenu
@@ -128,7 +200,6 @@ body
     height: 100%;
 
     padding: 2px;
-
     color: white;
     background-color: rgb(39, 40, 34);
     z-index: 0;
@@ -140,10 +211,10 @@ body
     position: absolute;
     top:-20px;
     left: 260px;
-    width: calc(100vw - 260px);
+    /* width: calc(100vw - 260px); */
     height: 100%;
 
-    z-index: 0;
+    z-index: 1;
     transition: 0.3s;
 }
 
@@ -152,7 +223,7 @@ body
     position: absolute;
     bottom: 0px;
     left: 260px;
-    width: calc(100vw - 260px);
+    /* width: calc(100vw - 260px); */
     
     box-shadow: 0px -1px 5px black;
     z-index: 1;
@@ -251,8 +322,45 @@ body
     position: relative;
     top: 30px;
     left: 0px;
-    height: calc(100vh - 265px);
+    height: calc(100vh - 270px);
 }
+#FileOptions
+{
+    position: relative;
+    top:0px;
+    left:20px;
+    width: 100%;
+    height: 30px;
+}
+.Button-FileOption
+{
+    position: relative;
+    top:0px;
+    left:15px;
+    width:57px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+}
+#create-new-file 
+{
+    background-image: url('../images/CreateNewFile-Def.png');
+    background-size: cover;
+}
+#create-new-file:hover
+{
+    background-image: url('../images/CreateNewFile-Sel.png');    
+}
+#create-new-folder
+{
+    background-image: url('../images/CreateNewFolder-Def.png');
+    background-size: cover;    
+}
+#create-new-folder:hover
+{
+    background-image: url('../images/CreateNewFolder-Sel.png');
+}
+
 #FolderContainer
 {
     position: relative;
