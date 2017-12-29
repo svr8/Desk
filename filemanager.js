@@ -141,6 +141,7 @@ function loadBuildFile(buildFilePath) {
         console.log('Build file loaded successfully');
     }
     else {
-        alert('Build file not found.');
+        if(!config.startup)
+            alert('Build file not found.');
     }
 }
