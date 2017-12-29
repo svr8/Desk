@@ -48,7 +48,7 @@ body
     height: 100%;
 
     overflow: hidden;
-    background-color: rgb(39, 40, 34);
+    background-color: rgb(27, 27, 23);
     z-index: 1;
 }
 .Sidebar-Button
@@ -201,7 +201,8 @@ body
 
     padding: 2px;
     color: white;
-    background-color: rgb(39, 40, 34);
+    /* background-color: rgb(39, 40, 34); */
+    background-color: rgb(27, 27, 23);    
     z-index: 0;
 
     transition: 0.3s;
@@ -342,24 +343,28 @@ body
     display: inline-block;
     cursor: pointer;
 }
-/* #create-new-file 
+#create-new-file 
 {
-    background-image: url('../images/CreateNewFile-Def.png');
+    /* background-image: url('../images/CreateNewFile-Def.png'); */
+    background-color: rgb(49, 26, 126);
     background-size: cover;
 }
 #create-new-file:hover
 {
-    background-image: url('../images/CreateNewFile-Sel.png');    
+    /* background-image: url('../images/CreateNewFile-Sel.png');     */
+    background-color: rgb(74, 44, 175);    
 }
 #create-new-folder
 {
-    background-image: url('../images/CreateNewFolder-Def.png');
+    /* background-image: url('../images/CreateNewFolder-Def.png'); */
+    background-color: rgb(26, 126, 121);    
     background-size: cover;    
 }
 #create-new-folder:hover
 {
-    background-image: url('../images/CreateNewFolder-Sel.png');
-} */
+    /* background-image: url('../images/CreateNewFolder-Sel.png'); */
+    background-color: rgb(42, 170, 163);        
+}
 
 #FolderContainer
 {

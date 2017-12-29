@@ -252,6 +252,9 @@ $(document).ready(function(){
                 //CTRL + 2: Run file
                 case 50 : run();
                           break;
+                //CTRL + 3: Stop Execution
+                case 51 : stop();
+                          break;
                 //CTRL + B: Toggle Sidemenu
                 case 66 : if(sideMenuIsVisible)
                               showSideMenuContainer(false);
@@ -278,6 +281,7 @@ $(document).ready(function(){
    
 });
 function renderTempTabHTML() {
+    expandFolder(curFolder);
     return '<div class="Tab-Temp"><input></div>';
 }
 function showIOPanel(state) {

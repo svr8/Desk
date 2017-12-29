@@ -8,7 +8,7 @@
     "pack": "build --dir"
   },
   "build": {
-    "appId": "svr8.Desks",
+    "appId": "com.desks.tech",
     "productName": "Desks"
   },
   "repository": {

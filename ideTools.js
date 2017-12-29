@@ -30,8 +30,9 @@ function compile() {
     showIOPanel(true);
 
     //Execute compile code from "buildFilePath"
-    executeCompile(fileAbsolutePath, fileContainerPath, fileName);
-    $('#outputTab').val('');
+    execute(getCompileCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
+        displayCompileResults(error, stderr, stdout); 
+    });
 }
 function run() {
     var fileAbsolutePath = curFile.path,
@@ -48,10 +49,17 @@ function run() {
     //Show IO Panel
     showIOPanel(true);
     
-    //Execute run code from "buildFilePath"
-    executeRun(fileAbsolutePath, fileContainerPath, fileName);
+    execute(getRunCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
+        displayRunResults(error, stderr, stdout);
+    });
 }
-
+function stop() {
+    execute(getStopCommand(), function(error, stderr, stdout) {
+        displayCompileResults(error, stderr, stdout);
+        $('#outputTab').val('Process Stopped!');
+        stopPressed = false;
+    });
+}
 function displayCompileResults(error, stderr, stdout) {
     var out = '';
     // if(error!=null)
@@ -60,7 +68,7 @@ function displayCompileResults(error, stderr, stdout) {
         out = out+stderr+'\n';
     if(stdout.length>0)
         out = out+stdout+'\n';
-    out = out+'Compile Process Completed!';
+    if(out.length == 0) out='Compiled Successfully!';
     $('#outputTab').val(out);
 }
 function displayRunResults(error, stderr, stdout) {
