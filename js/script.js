@@ -3,6 +3,7 @@ const configFile = require('electron-json-config');
 
 //Default Configs
 var config = {
+    "startup":"true",
     "inputFilePath":"",
     "outputFilePath":"",
     "curZoom":"1",
@@ -21,7 +22,11 @@ var isCtrl = false;
 function initialise() {
     loadDefaultValues();
     initialiseSidebar();
-    
+    if(config.startup) {
+        showMainMenu(!mainMenuIsVisible);
+        config.startup = false;
+        updateSessionData(false);
+    }
     //Set default state of IO Panel
     showIOPanel(ioPanelIsVisible);
 
