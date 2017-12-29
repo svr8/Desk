@@ -22,6 +22,8 @@ var isCtrl = false;
 function initialise() {
     loadDefaultValues();
     initialiseSidebar();
+    
+    //First startup
     if(config.startup) {
         showMainMenu(!mainMenuIsVisible);
         config.startup = false;

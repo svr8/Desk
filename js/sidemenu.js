@@ -56,6 +56,7 @@ function showSideMenuContainer(state) {
     sideMenuIsVisible = state;
     if(sideMenuIsVisible) {
         $(".Sidemenu").show();
+        
         if(curSideMenu==nullSideMenu)
             selectSideMenu(sidemenu[0]);
        
@@ -66,6 +67,7 @@ function showSideMenuContainer(state) {
     else {
         $(".Sidemenu").hide();        
         selectSideMenu(nullSideMenu);
+        
         //Reposition/Resize .Editor, .IO
         $("#editor, .IO").css("left", $('.Sidebar').width());
         $("#editor, .IO").width($(window).width()-$('.Sidebar').width());

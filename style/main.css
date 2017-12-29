@@ -1,7 +1,7 @@
 @font-face
 {
     font-family: TitleFont;
-    src: url('../fonts/Generica.otf');
+    src: url('../fonts/helvetica-regular.otf');
 }
 @font-face
 {
@@ -273,6 +273,7 @@ body
     height: calc(100% - 30px);
 
     font-family: Data;
+    font-size: 12pt;
 }
 
 #NullSideMenu
@@ -344,28 +345,24 @@ body
     height: 20px;
     display: inline-block;
     cursor: pointer;
+    background-size: cover;        
+    transition: 0.2s;
 }
 #create-new-file 
 {
-    /* background-image: url('../images/CreateNewFile-Def.png'); */
-    background-color: rgb(49, 26, 126);
-    background-size: cover;
+    background-image: url('../images/CreateNewFile-Def.png');
 }
 #create-new-file:hover
 {
-    /* background-image: url('../images/CreateNewFile-Sel.png');     */
-    background-color: rgb(74, 44, 175);    
+    background-image: url('../images/CreateNewFile-Sel.png');    
 }
 #create-new-folder
 {
-    /* background-image: url('../images/CreateNewFolder-Def.png'); */
-    background-color: rgb(26, 126, 121);    
-    background-size: cover;    
+    background-image: url('../images/CreateNewFolder-Def.png');
 }
 #create-new-folder:hover
 {
-    /* background-image: url('../images/CreateNewFolder-Sel.png'); */
-    background-color: rgb(42, 170, 163);        
+    background-image: url('../images/CreateNewFolder-Sel.png');
 }
 
 #FolderContainer
@@ -440,6 +437,7 @@ textarea
     border: none;
     overflow: auto;
     outline: none;
+    resize: none;
 }
 #btn-IOPath
 {

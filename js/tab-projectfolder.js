@@ -64,7 +64,7 @@ function addProjectFolder(projectFolder) {
             
             //Style Root Folder Tab
             var el = $('.Tab-Folder .TargetWrap .Text-Tab').first();
-            el.css({"left":"0px","width":"198px","text-align":"center","font-family":"TitleFont", "font-size":"20pt",
+            el.css({"left":"0px","width":"198px","text-align":"center","font-family":"TitleFont", "font-size":"17pt",
             "margin": "2px","border-bottom":"1px solid white"});
             el = $('.Tab-Folder .TargetWrap').first();
             el.css({'width': '196px', 'left':'5px'});
