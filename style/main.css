@@ -67,11 +67,13 @@ body
 }
 #sidebar-MainMenu
 {
-    background-image: url('../images/sidebar-MainMenu-Def.png');
+    background-image: url('../images/Settings-Def.png');
+    position: absolute;
+    top: calc(100% - 45px);
 }
 #sidebar-MainMenu:hover
 {
-    background-image: url('../images/sidebar-MainMenu-Sel.png');
+    background-image: url('../images/Settings-Sel.png');
 }
 #sidebar-CurrentFolder
 {

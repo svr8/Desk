@@ -56,6 +56,7 @@ function saveFile(file) {
                 return;
             }
             console.log("File update: successful!");
+            setFileSaveStatus(file, true);                                                    
         });
 }
 function createNewFileAt(path) {
@@ -90,6 +91,7 @@ function createNewFile(file) {
                 $("#WT-"+file.id+" .Text-Tab").html(file.name);
                 reloadFolder(folderReference(getDirectoryParentPath(file.path)));
                 reloadWorkFiles();
+                setFileSaveStatus(file, true);                                                                    
             }
         });
     });

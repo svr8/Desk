@@ -234,14 +234,13 @@ $(document).ready(function(){
             switch(e.keyCode) {
                 //CTRL + N: Create new file (temporary)
                 case 78 : var wt = new WorkingTab(randomIndex++, 'New File');
+                          wt.exists = false;
                           addWorkingFile(wt);
                           selectWorkingFile(wt);
-                          setFileSaveStatus(wt, false);                          
                           break;
                 //CTRL + S: Save current file
                 case 83 : curFile.data = getData();
                           saveFile(curFile); 
-                          setFileSaveStatus(curFile, true);                                                    
                           break;
                 //CTRL + W: Close current tab
                 case 87 : closeWorkTab(curFile);

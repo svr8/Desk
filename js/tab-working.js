@@ -90,10 +90,11 @@ function showSaveFilePrompt(file, status) {
 
 function closeWorkTab(file) {
     file.data = getData();
-    file.exists = fs.existsSync(file.path);
+    file.exists = (file.path.length>0 && fs.existsSync(file.path));
     
     if( (!file.exists && file.data.length>0) || !file.isSaved ) {   
         //Save file prompt
+        console.log('k');
         showSaveFilePrompt(file, true);
         return;
     }
