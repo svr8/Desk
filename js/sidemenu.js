@@ -16,6 +16,7 @@ function initialiseSideMenu(menu) {
             showSideMenuContainer(false);
         }
     });
+    //Hover effects on toggle buttons
     $('#'+menu.toggleBtnId).on('mouseenter', function(){
         $('#'+menu.toggleBtnId).css("background-image", "url('./images/"+menu.toggleBtnId+"-Sel.png')");
     });
