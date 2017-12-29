@@ -147,7 +147,6 @@ function reloadWorkFiles() {
 }
 function setFileSaveStatus(file, status) {
     file.isSaved = status;
-    console.log(file.id);
     if(file.isSaved) {
         $('#FL-'+file.id+' .Text-Tab').first().css('font-weight', 'normal');
         $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'normal');

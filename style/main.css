@@ -23,7 +23,7 @@ body
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(39, 40, 34);    
+    background-color: rgb(27, 27, 23);        
 }
 #elementName
 {
@@ -201,8 +201,8 @@ body
 
     padding: 2px;
     color: white;
-    /* background-color: rgb(39, 40, 34); */
-    background-color: rgb(27, 27, 23);    
+    background-color: rgb(27, 27, 23); 
+    box-shadow: 0px 0px 8px black;   
     z-index: 0;
 
     transition: 0.3s;
