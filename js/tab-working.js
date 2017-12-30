@@ -157,3 +157,23 @@ function setFileSaveStatus(file, status) {
         $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'bold');        
     }
 }
+function toggleWorkFile(dir) {
+    //dir == true --> move down
+    //dir == false --> move up
+    var index = getWorkFileRecordIndex(curFile);
+    var newIndex = index,
+        len = workfileRecord.length;
+    if(dir)
+        newIndex = (index+1)%len;
+    else 
+        newIndex = (index-1+len)%len;
+    selectWorkingFile(workfileRecord[newIndex]);
+}
+function getWorkFileRecordIndex(file) {
+    var len = workfileRecord.length;
+    for(var i=0;i<len;i++) {
+        if(workfileRecord[i].path == file.path)
+            return i;
+    }
+    return -1;
+}

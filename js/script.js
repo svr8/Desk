@@ -270,6 +270,12 @@ $(document).ready(function(){
                 //CTRL + I: Toggle I/O Panel
                 case 73 : showIOPanel(!ioPanelIsVisible);
                           break;
+                //CTRL + PageUp : Toggle Work File Upwards
+                case 33 : toggleWorkFile(false);
+                          break;
+                //CTRL + PageDown : Toggle Work File Downwards
+                case 34 : toggleWorkFile(true);
+                          break;
                 //CTRL + =: Zoom in
                 case 187 : zoomIn();
                            break;
