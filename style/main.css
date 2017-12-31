@@ -23,8 +23,33 @@ body
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: rgb(27, 27, 23);        
+    background-color: rgb(27, 27, 23);
 }
+#background-image
+{
+	position: absolute;
+	top: 25%;
+	left: 35%;
+	width: 550px;
+	height: 180px;
+	background-image: url('../images/bkg.png');
+	background-size: cover;
+
+}
+.KeyBindingsContainer-Background
+{
+    position: relative;
+    top: 60%;
+    left: 45%;
+    color: #555;
+    font-family: Data;
+}
+.KeyBindingsContainer-Background td
+{
+    color: #555;
+    padding: 0 15px 0 15px;
+}
+
 #elementName
 {
     position: fixed;

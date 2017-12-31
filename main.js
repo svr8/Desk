@@ -1,10 +1,12 @@
 const electron = require('electron');
 const {app, BrowserWindow, webFrame} = electron;
+var path = require('path');
 let win;
 
 
 app.on('ready', () => {
-    win  = new BrowserWindow({width:1500, height:1000})
+    win  = new BrowserWindow({width:1500, height:1000,
+	   icon: path.join(__dirname, 'icon.png')})
     win.loadURL(`file://${__dirname}/main.html`)
     // win.setMenu(null)
 })
