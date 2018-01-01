@@ -92,14 +92,15 @@ body
 }
 #sidebar-MainMenu
 {
-    background-image: url('../images/Settings-Def.png');
     position: absolute;
     top: calc(100% - 45px);
+    background-image: url('../images/Settings-Def.png');
 }
 #sidebar-MainMenu:hover
 {
     background-image: url('../images/Settings-Sel.png');
 }
+
 #sidebar-CurrentFolder
 {
     background-image: url('../images/sidebar-CurrentFolder-Def.png');

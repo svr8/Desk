@@ -308,10 +308,14 @@ function showIOPanel(state) {
     ioPanelIsVisible = state;
 }
 function showMainMenu(state) {
-    if(state) 
+    if(state) {
         $('.MainMenu').fadeIn(150);
-    else 
+	$("#sidebar-MainMenu").css('background-image', "url('images/Settings-Sel.png')");
+    }
+    else {
         $('.MainMenu').fadeOut(150);
+	$("#sidebar-MainMenu").css('background-image', "url('images/Settings-Def.png')");
+    }
     mainMenuIsVisible = state;
         
 }
