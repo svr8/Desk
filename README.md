@@ -1,17 +1,17 @@
 # Desk
-A light-weight ide for competitive programming.
+A light-weight ide for competitive programming. The editor is uses [ace-editor](https://github.com/ajaxorg/ace) as syntax highlighter and [electron](https://electronjs.org/) that wraps up everything.
 
 ![Screenshot](https://github.com/svr8/Desk/blob/master/Screenshot.PNG)
+
 # Downloads
 + [Windows](http://www.mediafire.com/file/ki3m3nyi0u333ks/Desk-1.0.0-Windows.zip)
 + [Ubuntu](http://www.mediafire.com/file/m7w5akr74dg9btw/Desk-1.0.0-Linux-x86_64.tar.gz)
 
 # Running Locally
 ## Prerequisites
-+ Git
-+ Node.JS
-+ npm
-+ yarn ( for building executables )
++ [Git](https://git-scm.com/)
++ [nodejs and npm](https://nodejs.org/en/)
++ [yarn](https://www.npmjs.com/package/yarn) (recommended for [electron-builder](https://www.npmjs.com/package/electron-builder))
 
 ## Setup
 + Install electron globally<br/>
