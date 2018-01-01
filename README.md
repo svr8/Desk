@@ -1,4 +1,4 @@
-# Desks
+# Desk
 A light-weight ide for competitive programming.
 
 ![Screenshot](https://github.com/svr8/Desks/blob/master/Screenshots/Screenshot.PNG)
