@@ -1,10 +1,10 @@
 # Desk
 A light-weight ide for competitive programming.
 
-![Screenshot](https://github.com/svr8/Desks/blob/master/Screenshots/Screenshot.PNG)
+![Screenshot](https://github.com/svr8/Desk/blob/master/Screenshot.PNG)
 # Downloads
-+ [Windows](http://www.mediafire.com/file/iqrs8b2z67padr3/Desks%20Setup%201.0.0.exe)
-+ [Ubuntu](http://www.mediafire.com/file/ngjqq6jju8wwj1n/Desks-1.0.0-x86_64.tar.gz)
++ [Windows](http://www.mediafire.com/file/ki3m3nyi0u333ks/Desk-1.0.0-Windows.zip)
++ [Ubuntu](http://www.mediafire.com/file/m7w5akr74dg9btw/Desk-1.0.0-Linux-x86_64.tar.gz)
 
 # Running Locally
 ## Prerequisites
@@ -34,4 +34,4 @@ You might face installation issues. If the above fails, this should work:<br/>
 
 ## CREDITS
 Designed By : [Divyakant Singh](https://www.behance.net/divyakantsingh) and [Veer Singh](https://www.instagram.com/weavingweb/) <br/>
-Developed By : Shikhar Vaish ([MIT LICENSE](https://github.com/svr8/Desks/blob/master/LICENSE))
+Developed By : Shikhar Vaish ([MIT LICENSE](https://github.com/svr8/Desk/blob/master/LICENSE))
