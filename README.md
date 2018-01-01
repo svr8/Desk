@@ -7,6 +7,9 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 + [Windows](http://www.mediafire.com/file/ki3m3nyi0u333ks/Desk-1.0.0-Windows.zip)
 + [Ubuntu](http://www.mediafire.com/file/m7w5akr74dg9btw/Desk-1.0.0-Linux-x86_64.tar.gz)
 
+# Usage
+You'll a commands folder atter you download and extract
+Find the file java.js in your os(windows/linux). This is a build file that contains terminal commands for java, to compile, run and stop. Edit this file to suit your language. In the app, update settings and youre ready to code.
 # Running Locally
 ## Prerequisites
 + [Git](https://git-scm.com/)
