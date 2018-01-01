@@ -1,5 +1,5 @@
 # Desk
-A light-weight ide for competitive programming. The editor is uses [ace-editor](https://github.com/ajaxorg/ace) as syntax highlighter and [electron](https://electronjs.org/) that wraps up everything.
+A light-weight ide for competitive programming. The editor uses [ace-editor](https://github.com/ajaxorg/ace) as syntax highlighter and [electron](https://electronjs.org/) that wraps up everything.
 
 ![Screenshot](https://github.com/svr8/Desk/blob/master/Screenshot.PNG)
 
