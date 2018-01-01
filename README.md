@@ -37,6 +37,6 @@ You might face installation issues. If the above fails, this should work:<br/>
 + Build<br/>
 `yarn dist`
 
-## CREDITS
+# Credits
 Designed By : [Divyakant Singh](https://www.behance.net/divyakantsingh) and [Veer Singh](https://www.instagram.com/weavingweb/) <br/>
 Developed By : Shikhar Vaish ([MIT LICENSE](https://github.com/svr8/Desk/blob/master/LICENSE))
