@@ -9,7 +9,8 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 
 # How to use
 You'll find a `commands` folder after you download and extract.
-Find the file `java.js` in your os(windows/linux). This is a build file that contains terminal commands for java, to compile, run and stop. Edit this file to suit your language. In the app, update settings and you're ready to code.
+Find the file `java.js` in your os(windows/linux). This is a build file that contains terminal commands for java, to compile, run and stop. Edit this file to suit your language.<br/>
+In the app, set the build file path as the file you created. The input and output file paths are .txt files that the ide will use to store input and output, respectively. That's it, you're ready to code now.
 # Running Locally
 ## Prerequisites
 + [Git](https://git-scm.com/)
