@@ -4,11 +4,14 @@ const configFile = require('electron-json-config');
 //Default Configs
 var config = {
     "startup":"true",
+    
     "inputFilePath":"",
     "outputFilePath":"",
+    "buildFilePath":"",
+    
     "curZoom":"1",
     "language":"java",
-    "buildFilePath":"",
+    
     "projectFolders":[]
 }
 
@@ -16,7 +19,7 @@ var curZoom = 1,
     changeZoomBy = 0.2;
 
 var ioPanelIsVisible = false;
-var mainMenuIsVisible = false;
+var SettingsIsVisible = false;
 var isCtrl = false;
 
 var randomIndex = 0;
@@ -27,7 +30,7 @@ function initialise() {
     
     //First startup
     if(config.startup) {
-        showMainMenu(!mainMenuIsVisible);
+        showSettings(!SettingsIsVisible);
         config.startup = false;
         updateSessionData(false);
     }
@@ -52,13 +55,13 @@ function initialise() {
         function(){
             $(this).data('hover',0); //store in that element that the mouse is no longer over it
         });
-        $('#sidebar-MainMenu').hover(function(e) {
+        $('#sidebar-Settings').hover(function(e) {
             if(timer) {
                 clearTimeout(timer);
                 timer = null
             }
             timer = setTimeout(function() {
-                if(isHovering( $('#sidebar-MainMenu') ))
+                if(isHovering( $('#sidebar-Settings') ))
                     showElementName(e, 'Main Menu');                
             }, 1000)
         }, function(){
@@ -200,9 +203,9 @@ function hideElementName() {
 }
 $(document).ready(function(){
     //MOUSE EVENT LISTENERS:
-    //MainMenu-Button
-    $('#sidebar-MainMenu').on('click', function(){
-        showMainMenu(!mainMenuIsVisible);
+    //Settings-Button
+    $('#sidebar-Settings').on('click', function(){
+        showSettings(!SettingsIsVisible);
     });
     //Create File Button
     $('#create-new-file').on('click', function(){
@@ -325,17 +328,17 @@ function showIOPanel(state) {
     }
     ioPanelIsVisible = state;
 }
-function showMainMenu(state) {
-    if(state) {
-        $('.MainMenu').fadeIn(150);
-	$("#sidebar-MainMenu").css('background-image', "url('images/Settings-Sel.png')");
+function showSettings(state) {
+    SettingsIsVisible = state;
+    
+    if(SettingsIsVisible) {
+        $('.Settings').fadeIn(150);
+        $("#sidebar-Settings").css('background-image', "url('images/Settings-Sel.png')");
     }
     else {
-        $('.MainMenu').fadeOut(150);
-	$("#sidebar-MainMenu").css('background-image', "url('images/Settings-Def.png')");
+        $('.Settings').fadeOut(150);
+        $("#sidebar-Settings").css('background-image', "url('images/Settings-Def.png')");
     }
-    mainMenuIsVisible = state;
-        
 }
 function updateSessionData(notifyUpdate) {
     configFile.set('config', config);

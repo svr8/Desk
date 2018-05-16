@@ -38,32 +38,29 @@
         <div id="elementName"></div>
 	<div id="background-image"></div>
 <div class="KeyBindingsContainer-Background">
-              
-<table>
-		    <tr>
-    			<td align="right">Toggle Sidemenu</td>
-                <td>Ctrl + B</td> 
-            </tr>
-		    <tr>
-                <td align="right">Toggle I/O Panel</td>
-                <td>Ctrl + I</td> 
-            </tr>
-		    <tr>
-    			<td align="right">Compile</td>
-                <td>Ctrl + 1</td>
-            </tr>
-		    <tr>
-		        <td align="right">Execute</td>
-                <td>Ctrl + 2</td>
-            </tr>
-		    <tr>
-    			<td align="right">Stop</td>
-                <td>Ctrl + 3</td> 
-            </tr>
-</table>
-                    
-              
-            </div>
+    <table>
+                <tr>
+                    <td align="right">Toggle Sidemenu</td>
+                    <td>Ctrl + B</td> 
+                </tr>
+                <tr>
+                    <td align="right">Toggle I/O Panel</td>
+                    <td>Ctrl + I</td> 
+                </tr>
+                <tr>
+                    <td align="right">Compile</td>
+                    <td>Ctrl + 1</td>
+                </tr>
+                <tr>
+                    <td align="right">Execute</td>
+                    <td>Ctrl + 2</td>
+                </tr>
+                <tr>
+                    <td align="right">Stop</td>
+                    <td>Ctrl + 3</td> 
+                </tr>
+    </table>
+</div>
         <div class="Prompt">
             <div class="Prompt-Message">Do you want to save the file before closing it ?</div>
             <div class="Prompt-Button-Container">
@@ -89,7 +86,7 @@
             <div class="Sidebar-Button" id="stopBtn"></div>
             
             <!-- Main Menu -->
-            <div class="Sidebar-Button" id="sidebar-MainMenu"></div>
+            <div class="Sidebar-Button" id="sidebar-Settings"></div>
         </div>
 
         <div class="Sidemenu">
@@ -121,42 +118,75 @@
             </div>
         </div>
 
-        <div class="MainMenu">
+        <div class="Settings">
             <div class="IOContainer">
                 <table>
                     <tr>
-                        <td>Input File Path:</td>
+                        <td class="io-label">Input File Path:</td>
                         <td><input id="input-InputPath"></div></td>
-                        <td><button class="chooseBtn" onclick="getInputFilePath()">Choose File</button></td>
+                        <td><button class="chooseBtn" onclick="getInputFilePath()">CHOOSE FILE</button></td>
                     </tr>
                     <tr>
-                        <td>Output File Path:</td>
+                        <td class="io-label">Output File Path:</td>
                         <td><input id="input-OutputPath"></td>
-                        <td><button class="chooseBtn" onclick="getOutputFilePath()">Choose File</button></td>
+                        <td><button class="chooseBtn" onclick="getOutputFilePath()">CHOOSE FILE</button></td>
                     </tr>
                     <tr>
-                        <td>Commands File Path:</td>
+                        <td class="io-label">Commands File Path:</td>
                         <td><input id="input-BuildPath"></td>
-                        <td><button class="chooseBtn" onclick="getBuildFilePath()">Choose File</button></td>
+                        <td><button class="chooseBtn" onclick="getBuildFilePath()">CHOOSE FILE</button></td>
                     </tr>
                 </table>
-                <div id="btn-IOPath" onclick="updateIOFilePath()">UPDATE</div>
+                <div id="btn-IOPath" onclick="updateIOFilePath()"> UPDATE </div>
             </div>
             <div class="KeyBindingsContainer">
-                <PRE>
-                    Ctrl + N : New File
-                    Ctrl + S : Save File
-                    Ctrl + W : Close File
+                <table>
+                    <tr>
+                        <td align="right">New File</td>
+                        <td>Ctrl + N</td> 
+                    </tr>
+                    <tr>
+                            <td align="right">Save File</td>
+                            <td>Ctrl + S</td> 
+                    </tr>
+                    <tr>
+                            <td align="right">Close File</td>
+                            <td>Ctrl + W</td> 
+                    </tr>
+                    <tr>
+                            <td align="right">Toggle Sidemenu</td>
+                            <td>Ctrl + B</td> 
+                    </tr>
+                    <tr>
+                            <td align="right">Toggle IO Panel</td>
+                            <td>Ctrl + I</td> 
+                    </tr>
+                    <tr>
+                            <td align="right">Zoom In</td>
+                            <td>Ctrl + +</td> 
+                    </tr>
+                    <tr>
+                            <td align="right">Zoom Out</td>
+                            <td>Ctrl + -</td> 
+                    </tr>
 
-                    Ctrl + B : Toggle Sidemenu
-                    Ctrl + I : Toggle I/O Panel
-                    Ctrl + = : Zoom In
-                    Ctrl + - : Zoom Out
-
-                    Ctrl + 1 : Compile
-                    Ctrl + 2 : Execute
-                    Ctrl + 3 : Stop
-                </PRE>
+                    <tr>
+                            <td align="right">Compile</td>
+                            <td>Ctrl + 1</td> 
+                    </tr>
+                    <tr>
+                            <td align="right">Execute</td>
+                            <td>Ctrl + 2</td> 
+                    </tr>
+                    <tr>
+                            <td align="right">Run</td>
+                            <td>Ctrl + 3</td> 
+                    </tr>
+                </table>
+               
+            </div>
+            <div class="credits">
+                Made with <img src="./images/heart.png" height="16" width="16">  by Shikhar Vaish
             </div>
         </div>
        
@@ -203,7 +233,7 @@
                     setFileSaveStatus(curFile, false);
             });
             function getData() {
-                if(curFile!=null)
+                if(curFile!=null) 
                     return editor.getSession().getValue();
             }
             function setData(data) {
