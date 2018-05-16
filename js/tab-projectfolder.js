@@ -8,8 +8,16 @@ function ProjectFolderTab(id, absolutePath) {
     this.subFiles = [];
 
     this.renderHTML = function() {
-        return '<div id="PF-'+id+'" class="Tab-ProjectFolder">'+ '<div class="TargetWrap">'+ this.image.renderHTML()+ '<div class="Text-Tab">'+this.name+'</div>'+ '</div>'+ '</div>';
+        return '<div id="PF-'+id+'" class="Tab-ProjectFolder">'+ 
+                    '<div class="TargetWrap">'+  
+                         this.image.renderHTML()+ 
+                         '<div class="Text-Tab">'+ this.name+ '</div>'+
+                    '</div>'+ 
+                '</div>';
     };
+}
+function updateRandomIndex(id) {
+    randomIndex = id+1;
 }
 function addProjectFolder(projectFolder) {
     //Do nothing if project already exists
@@ -50,14 +58,17 @@ function addProjectFolder(projectFolder) {
     $($(el).find(".TargetWrap")).on("click", function(){
         getDirectoryContents(projectFolder, function() {
             //Clear CurrentFolder
-            $("#WorkingFileListContainer").html('');
-            $("#CurrentProjectContainer").html('');
+            $("#WorkingFileListContainer").html(''); workfileRecord = [];
+            $("#CurrentProjectContainer").html(''); folderRecord = [];
+
+            //Hide editor
+            showEditor(false);
             
             //Load Folder
             var fd = new FolderTab(projectFolder.id, projectFolder.path);            
             addFolder('#CurrentProjectContainer', fd);
             selectFolder(fd);
-            expandFolder(fd);            
+            expandFolder(fd);   
 
             //Select Sidemenu: CurrentFolder
             selectSideMenu(sidemenu[0]);

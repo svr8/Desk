@@ -61,6 +61,7 @@ function selectWorkingFile(file) {
     if(curFile==null) return;
     var curStatus = curFile.isSaved;
     $('#WT-'+curFile.id+' .TargetWrap').css('background-color', 'rgb(32,32,32)'); //edit css of curFile
+    console.log(curFile.data);
     setData(curFile.data);    //load file data
     showEditor(true);         //display editor
 
@@ -130,10 +131,21 @@ function removeWorkFileTab(file) {
 var isEditorVisible = false;
 function showEditor(status) {
     isEditorVisible = status;
-    if(isEditorVisible)
+    if(isEditorVisible) {
         $('#editor').show();
-    else
+        //Reposition/Resize .Editor, .IO        
+        if(sideMenuIsVisible) {
+            $("#editor, .IO").css("left", $('.Sidemenu').offset().left+$('.Sidemenu').width()+3);
+            $("#editor, .IO").width($(window).width()-$('.Sidebar').width()-$('.Sidemenu').width()-3);
+        }
+        else {
+            $("#editor, .IO").css("left", $('.Sidebar').width());
+            $("#editor, .IO").width($(window).width()-$('.Sidebar').width());
+        }
+    }
+    else {
         $('#editor').hide();
+    }
 }
 function reloadWorkFiles() {
     var l = workfileRecord.length;

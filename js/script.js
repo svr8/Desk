@@ -19,6 +19,8 @@ var ioPanelIsVisible = false;
 var mainMenuIsVisible = false;
 var isCtrl = false;
 
+var randomIndex = 0;
+
 function initialise() {
     loadDefaultValues();
     initialiseSidebar();
@@ -209,25 +211,41 @@ $(document).ready(function(){
         var el = $('.Tab-Temp input');        
         el.focus();
         el.blur(function(){
-            if(isValidNewFile(curFolder, el.val()) || el.val().length==0)
-                $('.Tab-Temp').hide();      
-            else 
-                el.focus();          
+              processNewFileData(el);       
+        });
+        $('body').on('keydown', function(e){
+            if(e.keyCode == 13)
+                processNewFileData(el);       
         });
     });
+    function processNewFileData(el) {
+        if(isValidNewFile(curFolder, el.val()) || el.val().length==0)
+            $('.Tab-Temp').hide();      
+        else 
+            el.focus();
+    }
+
     //Create Folder Button
     $('#create-new-folder').on('click', function(){
         var parent = $("#FD-"+curFolder.id).find('.SubDir').first();
         parent.append(renderTempTabHTML());
         var el = $('.Tab-Temp input');        
         el.focus();
+        
         el.blur(function(){
-            if(isValidNewFolder(curFolder, el.val()) || el.val().length==0)
-                el.hide();      
-            else 
-                el.focus();          
+                processNewFolderData(el);    
         });
+        $('body').on('keydown', function(e){
+            if(e.keyCode == 13)
+                processNewFolderData(el);       
     });
+    });
+    function processNewFolderData(el) {
+        if(isValidNewFolder(curFolder, el.val()) || el.val().length==0)
+            el.hide();      
+        else 
+            el.focus(); 
+    }
 
     //KEYBOARD SHORTCUT LISTENRS:
     $('body').on('keyup', function(e){
@@ -400,6 +418,7 @@ function loadDefaultValues() {
     for(var i=0;i<size;i++)
         if(fs.existsSync(openProjects[i]))
             addProjectFolder(new ProjectFolderTab(randomIndex++, openProjects[i]));
+    console.log(':'+randomIndex);
 }
 
 function loadJS(file) {
