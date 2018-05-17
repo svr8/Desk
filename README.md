@@ -1,7 +1,7 @@
 # Desk
 A light-weight ide for competitive programming. The editor uses [ace-editor](https://github.com/ajaxorg/ace) as syntax highlighter and [electron](https://electronjs.org/) that wraps up everything.
 
-![Screenshot](https://github.com/svr8/Desk/blob/master/Screenshot.PNG)
+![Screenshot](https://github.com/svr8/Desk/blob/UX-Updates/Preview.PNG)
 
 # Downloads
 + [Windows](http://www.mediafire.com/file/1z47wlq8u1dd45b/Desk%20Setup-1.1.3.zip)
@@ -16,7 +16,7 @@ Find the file `java.js`. This is a build file that contains terminal commands fo
 + [nodejs and npm](https://nodejs.org/en/)
 
 ## Setup
-Desk was developed on Windows 10.
+OS: Windows 10
 
 + Install electron globally<br/>
 `npm install electron -g`<br/>
@@ -32,7 +32,7 @@ You might face installation issues. If the above fails, this should work:<br/>
 
 ## Run
 + Run<br/>
-`npm run`
+`npm start`
 
 + Build<br/>
 `build -w`

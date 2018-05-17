@@ -12,7 +12,27 @@
 
     background-image: url('../images/Button-CloseTab-Def.png');
     background-size: cover;
-    transition: 0.3s;
+    /* transition: 0.1s; */
+}
+.Button-CloseTab-Unsaved
+{
+    top: 9px;
+    left: 10px;
+    width: 7px;
+    height: 7px;
+    border: 2px solid #7E7D7D;
+    border-radius: 10px;
+    background-image: none;
+}
+.Button-CloseTab-Unsaved:hover
+{
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border: none;
+    background-color: transparent;
+    background-image: url('../images/Button-CloseTab-Sel.png');
 }
 .Button-CloseTab:hover
 {

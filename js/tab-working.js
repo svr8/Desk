@@ -148,9 +148,9 @@ function showEditor(status) {
     }
 }
 function reloadWorkFiles() {
-    var l = workfileRecord.length;
-    for(var i=0;i<l;i++) {
-        for(var j=i+1;j<l;j++) {
+    var records = workfileRecord.length;
+    for(var i=0; i<records; i++) {
+        for(var j=i+1; j<records; j++) {
             if(workfileRecord[i].path==workfileRecord[j].path) {
                 closeWorkTab(workfileRecord[j]);
                 break;
@@ -163,29 +163,31 @@ function setFileSaveStatus(file, status) {
     if(file.isSaved) {
         $('#FL-'+file.id+' .Text-Tab').first().css('font-weight', 'normal');
         $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'normal');
+        
+        $('#FL-'+file.id+' .Button-CloseTab').removeClass('Button-CloseTab-Unsaved');
+        $('#WT-'+file.id+' .Button-CloseTab').removeClass('Button-CloseTab-Unsaved');
+        
     }
     else {
         $('#FL-'+file.id+' .Text-Tab').first().css('font-weight', 'bold');
-        $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'bold');        
+        $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'bold'); 
+        
+        $('#FL-'+file.id+' .Button-CloseTab').addClass('Button-CloseTab-Unsaved');
+        $('#WT-'+file.id+' .Button-CloseTab').addClass('Button-CloseTab-Unsaved');
     }
 }
 function toggleWorkFile(dir) {
-    //dir == true --> move down
-    //dir == false --> move up
-    var index = getWorkFileRecordIndex(curFile);
-    var newIndex = index,
-        len = workfileRecord.length;
-    if(dir)
-        newIndex = (index+1)%len;
-    else 
-        newIndex = (index-1+len)%len;
+    var index    = getWorkFileRecordIndex(curFile),
+        newIndex = index,
+        len      = workfileRecord.length;
+
+    if(dir) newIndex = (index+1) % len;   //move down
+    else newIndex = (index-1+len) % len;  //move up
     selectWorkingFile(workfileRecord[newIndex]);
 }
 function getWorkFileRecordIndex(file) {
     var len = workfileRecord.length;
-    for(var i=0;i<len;i++) {
-        if(workfileRecord[i].path == file.path)
-            return i;
-    }
+    for(var i=0;i<len;i++) 
+        if(workfileRecord[i].path == file.path) return i;         
     return -1;
 }
