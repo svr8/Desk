@@ -4,7 +4,7 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 ![Screenshot](https://github.com/svr8/Desk/blob/UX-Updates/Preview.PNG)
 
 # Downloads
-+ [Windows](http://www.mediafire.com/file/ki3m3nyi0u333ks/Desk-1.0.0-Windows.zip)
++ [Windows](http://www.mediafire.com/file/1z47wlq8u1dd45b/Desk%20Setup-1.1.3.zip)
 
 # How to use
 + You'll find a `commands` folder after you download and extract.
@@ -14,10 +14,10 @@ Find the file `java.js`. This is a build file that contains terminal commands fo
 ## Prerequisites
 + [Git](https://git-scm.com/)
 + [nodejs and npm](https://nodejs.org/en/)
-+ [yarn](https://www.npmjs.com/package/yarn) (recommended for [electron-builder](https://www.npmjs.com/package/electron-builder))
 
 ## Setup
 OS: Windows 10
+
 + Install electron globally<br/>
 `npm install electron -g`<br/>
 You might face installation issues. If the above fails, this should work:<br/>
