@@ -4,24 +4,24 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 ![Screenshot](https://github.com/svr8/Desk/blob/master/Screenshot.PNG)
 
 # Downloads
-+ [Windows](http://www.mediafire.com/file/ki3m3nyi0u333ks/Desk-1.0.0-Windows.zip)
-+ [Ubuntu](http://www.mediafire.com/file/m7w5akr74dg9btw/Desk-1.0.0-Linux-x86_64.tar.gz)
++ [Windows](http://www.mediafire.com/file/1z47wlq8u1dd45b/Desk%20Setup-1.1.3.zip)
 
 # How to use
 + You'll find a `commands` folder after you download and extract.
-Find the file `java.js` in your os(windows/linux). This is a build file that contains terminal commands for java, to compile, run and sstop.Duplicate this file and edit the commands to suit your language.<br/>
+Find the file `java.js`. This is a build file that contains terminal commands for java, to compile, run and stop. Duplicate this file and edit the commands to suit your language.<br/>
 + In the app, set the build file path as the file you created. The input and output file paths are files that the ide will use to store input and output, respectively. Create 2 .txt files and set their paths. That's it, you're ready to code now.
 # Running Locally
 ## Prerequisites
 + [Git](https://git-scm.com/)
 + [nodejs and npm](https://nodejs.org/en/)
-+ [yarn](https://www.npmjs.com/package/yarn) (recommended for [electron-builder](https://www.npmjs.com/package/electron-builder))
 
 ## Setup
+Desk was developed on Windows 10.
+
 + Install electron globally<br/>
-`sudo npm install electron -g`<br/>
+`npm install electron -g`<br/>
 You might face installation issues. If the above fails, this should work:<br/>
-`sudo npm install -g electron --unsafe-perm=true --allow-root`
+`npm install -g electron --unsafe-perm=true --allow-root`
 
 + Clone the repository<br/>
 `git clone https://github.com/svr8/Desks.git`
@@ -35,7 +35,7 @@ You might face installation issues. If the above fails, this should work:<br/>
 `npm run`
 
 + Build<br/>
-`yarn dist`
+`build -w`
 
 # Credits
 Designed By : [Divyakant Singh](https://www.behance.net/divyakantsingh) and [Veer Singh](https://www.instagram.com/weavingweb/) <br/>
