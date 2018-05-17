@@ -213,13 +213,10 @@ $(document).ready(function(){
         parent.append(renderTempTabHTML());
         var el = $('.Tab-Temp input');        
         el.focus();
-        el.blur(function(){
-              processNewFileData(el);       
-        });
-        $('body').on('keydown', function(e){
-            if(e.keyCode == 13)
-                processNewFileData(el);       
-        });
+        $(el).bind('blur keyup',function(e) {  
+            if (e.type === 'blur' || e.keyCode === 13)  
+                processNewFileData(el);    
+       });   
     });
     function processNewFileData(el) {
         if(isValidNewFile(curFolder, el.val()) || el.val().length==0)
@@ -234,14 +231,10 @@ $(document).ready(function(){
         parent.append(renderTempTabHTML());
         var el = $('.Tab-Temp input');        
         el.focus();
-        
-        el.blur(function(){
+        $(el).bind('blur keyup',function(e) {  
+            if (e.type === 'blur' || e.keyCode === 13)  
                 processNewFolderData(el);    
-        });
-        $('body').on('keydown', function(e){
-            if(e.keyCode == 13)
-                processNewFolderData(el);       
-    });
+       });    
     });
     function processNewFolderData(el) {
         if(isValidNewFolder(curFolder, el.val()) || el.val().length==0)
