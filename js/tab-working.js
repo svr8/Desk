@@ -164,16 +164,16 @@ function setFileSaveStatus(file, status) {
         $('#FL-'+file.id+' .Text-Tab').first().css('font-weight', 'normal');
         $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'normal');
         
-        $('#FL-'+file.id+' .Button-CloseTab').show();
-        $('#WT-'+file.id+' .Button-CloseTab').show();
+        $('#FL-'+file.id+' .Button-CloseTab').removeClass('Button-CloseTab-Unsaved');
+        $('#WT-'+file.id+' .Button-CloseTab').removeClass('Button-CloseTab-Unsaved');
         
     }
     else {
         $('#FL-'+file.id+' .Text-Tab').first().css('font-weight', 'bold');
         $('#WT-'+file.id+' .Text-Tab').first().css('font-weight', 'bold'); 
         
-        $('#FL-'+file.id+' .Button-CloseTab').hide();
-        $('#WT-'+file.id+' .Button-CloseTab').hide();
+        $('#FL-'+file.id+' .Button-CloseTab').addClass('Button-CloseTab-Unsaved');
+        $('#WT-'+file.id+' .Button-CloseTab').addClass('Button-CloseTab-Unsaved');
     }
 }
 function toggleWorkFile(dir) {

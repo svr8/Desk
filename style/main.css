@@ -25,6 +25,8 @@ body
     overflow: hidden;
     background-color: rgb(27, 27, 23);
 }
+
+.ace_text-input {position:absolute!important}
 #background-image
 {
 	position: absolute;
@@ -577,6 +579,8 @@ textarea
 {
     overflow: auto;
 }
+
+
 /* width */
 ::-webkit-scrollbar {
 width: 10px;
