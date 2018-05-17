@@ -334,10 +334,12 @@ function showSettings(state) {
     if(SettingsIsVisible) {
         $('.Settings').fadeIn(150);
         $("#sidebar-Settings").css('background-image', "url('images/Settings-Sel.png')");
+        $('.Sidebar').css({'box-shadow': '0px 0px 8px black', 'z-index':'3'});
     }
     else {
         $('.Settings').fadeOut(150);
         $("#sidebar-Settings").css('background-image', "url('images/Settings-Def.png')");
+        $('.Sidebar').css('box-shadow', 'none');
     }
 }
 function updateSessionData(notifyUpdate) {

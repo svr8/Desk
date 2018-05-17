@@ -26,7 +26,17 @@ body
     background-color: rgb(27, 27, 23);
 }
 
-.ace_text-input {position:absolute!important}
+.ace_editor{background: rgb(27, 27, 23) !important}
+.ace_gutter-layer{background: rgb(27, 27, 23) !important}
+.ace_active-line {background-color: rgba(132,131,131, 0.2) !important}
+.ace_autocomplete {
+    background-color: rgb(212, 212, 212) !important;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px black;
+}
+.ace_text-input {position:absolute !important}
+
+
 #background-image
 {
 	position: absolute;
@@ -65,6 +75,7 @@ body
     border-radius: 5px;
     padding: 2px;
     box-shadow: 0px 0px 8px black;
+    z-index: 4;
 }
 .Sidebar
 {
@@ -230,9 +241,8 @@ body
     height: 100%;
 
     padding: 2px;
-    color: white;
+    color: #DADADA;
     background-color: rgb(27, 27, 23); 
-    /* box-shadow: 0px 0px 8px black;    */
     z-index: 0;
 
     transition: 0.3s;
@@ -437,11 +447,18 @@ body
     display: none;
 }
 
-
+.Settings-Wrap
+{
+    position: relative;
+    left: 30%;
+    top: 100px;
+}
 .IOContainer
 {
     position: relative;
-    left: 28%;
+    left: 0px;
+    display: block;
+    margin-top: 30px;
     top: 10%;
     width: 650px;
     height: 255px;
@@ -523,7 +540,9 @@ textarea
 {
     position: relative;
     top: 18%;
-    left: 28%;
+    left: 0px;
+    display: block;
+    margin-top: 30px;
     width: 670px;
     height: 300px;
 
@@ -549,8 +568,10 @@ textarea
 .credits
 {
     position: relative;
-    top: 28%;
-    left: 28%;
+    top: 20%;
+    left: 0px;
+    display: block;
+    margin-top: 30px;
     width: 670px;
     height: 40px;
 
