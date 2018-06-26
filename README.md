@@ -4,7 +4,7 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 ![Screenshot](https://github.com/svr8/Desk/blob/UX-Updates/Preview.PNG)
 
 # Downloads
-+ [Windows](http://www.mediafire.com/file/2aurp6k25dasua1/Desk%20Setup-1.1.3.zip)
++ [Windows](http://www.mediafire.com/file/gub4eli4zoa7l9l/Desk%20Setup%201.1.4.exe)
 
 # How to use
 + You'll find a `commands` folder after you download and extract.
