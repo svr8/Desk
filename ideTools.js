@@ -68,7 +68,7 @@ function displayCompileResults(error, stderr, stdout) {
         out = out+stderr+'\n';
     if(stdout.length>0)
         out = out+stdout+'\n';
-    if(out.length == 0) out='Compiled Successfully!';
+    if(out.length == 0 || out.indexOf("1 file(s) moved.")!=-1) out='Compiled Successfully!';
     $('#outputTab').val(out);
 }
 function displayRunResults(error, stderr, stdout) {
@@ -90,5 +90,3 @@ function displayRunResults(error, stderr, stdout) {
 function execute(command, callback){
     exec(command, function(error, stdout, stderr){ callback(error, stderr, stdout); });
 };
-
-
