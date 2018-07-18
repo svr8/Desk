@@ -211,16 +211,19 @@ $(document).ready(function(){
     $('#create-new-file').on('click', function(){
         var parent = $("#FD-"+curFolder.id).find('.SubDir').first();
         parent.append(renderTempTabHTML());
+        
         var el = $('.Tab-Temp input');        
         el.focus();
-        $(el).bind('blur keyup',function(e) {  
-            if (e.type === 'blur' || e.keyCode === 13)  
+        
+        $(el).bind('blur keydown',function(e) { 
+            if(e.keyCode === 27) el.remove(); 
+            else if (e.type === 'blur' || e.keyCode === 13)  
                 processNewFileData(el);    
        });   
     });
     function processNewFileData(el) {
         if(isValidNewFile(curFolder, el.val()) || el.val().length==0)
-            $('.Tab-Temp').hide();      
+            $('.Tab-Temp').remove();      
         else 
             el.focus();
     }
@@ -229,16 +232,19 @@ $(document).ready(function(){
     $('#create-new-folder').on('click', function(){
         var parent = $("#FD-"+curFolder.id).find('.SubDir').first();
         parent.append(renderTempTabHTML());
+  
         var el = $('.Tab-Temp input');        
         el.focus();
+      
         $(el).bind('blur keyup',function(e) {  
-            if (e.type === 'blur' || e.keyCode === 13)  
-                processNewFolderData(el);    
+            if(e.keyCode === 27) el.remove();
+            else if ( e.type === 'blur' || e.keyCode === 13 ) 
+                processNewFolderData(el);  
        });    
     });
     function processNewFolderData(el) {
         if(isValidNewFolder(curFolder, el.val()) || el.val().length==0)
-            el.hide();      
+            el.remove();      
         else 
             el.focus(); 
     }
