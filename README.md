@@ -1,7 +1,7 @@
 # Desk
 A light-weight ide for competitive programming. The editor uses [ace-editor](https://github.com/ajaxorg/ace) as syntax highlighter and [electron](https://electronjs.org/) that wraps up everything.
 
-![Screenshot](https://github.com/svr8/Desk/blob/UX-Updates/Preview.PNG)
+![Screenshot](https://github.com/svr8/Desk/blob/master/Preview.PNG)
 
 # Downloads
 + [Windows](http://www.mediafire.com/file/2aurp6k25dasua1/Desk+Setup-1.1.3.zip)
