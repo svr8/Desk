@@ -1,12 +1,13 @@
 {
-  "name": "desks",
+  "name": "desk",
   "version": "1.1.4",
   "description": "Light-weight IDE",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
     "pack": "build --dir",
-    "build": "electron-packager . Desks"
+    "build": "electron-packager . Desk",
+    "package-linux": "electron-packager . Desk --overwrite --asar=true --platform=linux --arch=x64 --icon=icon.png --prune=true --out=release-builds"
   },
   "build": {
     "appId": "com.desk.tech",
@@ -28,11 +29,10 @@
   },
   "homepage": "https://github.com/svr8/Desk#readme",
   "devDependencies": {
-    "electron": "^1.7.10",
-    "electron-builder": "^20.13.4"    
+    "electron": "^2.0.3",
+    "electron-builder": "^20.19.1"
   },
   "dependencies": {
-    "electron-json-config": "^1.5.2",
-    "electron-packager": "^10.1.0"
+    "electron-json-config": "^1.5.2"
   }
 }
