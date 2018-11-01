@@ -5,6 +5,7 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 
 # Downloads
 + [Windows](http://www.mediafire.com/file/2aurp6k25dasua1/Desk+Setup-1.1.3.zip)
++ [Ubuntu](https://www.mediafire.com/file/92rxcyj5f5b6gbb/ubuntu-1.1.4.zip/file)
 
 # How to use
 + You'll find a `commands` folder after you download and extract.
