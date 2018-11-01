@@ -4,14 +4,24 @@
   "description": "Light-weight IDE",
   "main": "main.js",
   "scripts": {
+    "postinstall": "install-app-deps",
     "start": "electron main.js",
     "pack": "build --dir",
-    "build": "electron-packager . Desk",
-    "package-linux": "electron-packager . Desk --overwrite --asar=true --platform=linux --arch=x64 --icon=icon.png --prune=true --out=release-builds"
+    "dist": "build"
   },
   "build": {
     "appId": "com.desk.tech",
-    "productName": "Desk"
+    "productName": "Desk",
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
   },
   "repository": {
     "type": "git",
@@ -22,7 +32,11 @@
     "editor",
     "ide"
   ],
-  "author": "Shikhar Vaish",
+  "author": {
+    "name": "Shikhar Vaish",
+    "email": "shikhar.vaish90@gmail.com",
+    "url": "https://github.com/svr8/Desk/"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/svr8/Desk/issues"
@@ -30,7 +44,9 @@
   "homepage": "https://github.com/svr8/Desk#readme",
   "devDependencies": {
     "electron": "^2.0.3",
-    "electron-builder": "^20.19.1"
+    "electron-builder": "^20.29.0",
+    "electron-installer-debian": "^1.0.0",
+    "electron-packager": "^12.2.0"
   },
   "dependencies": {
     "electron-json-config": "^1.5.2"
