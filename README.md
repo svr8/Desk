@@ -17,7 +17,6 @@ Find the file `java.js`. This is a build file that contains terminal commands fo
 + [nodejs and npm](https://nodejs.org/en/)
 
 ## Setup
-OS: Windows 10
 
 + Install electron globally<br/>
 `npm install electron -g`<br/>
