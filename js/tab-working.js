@@ -63,6 +63,8 @@ function selectWorkingFile(file) {
     $('#WT-'+curFile.id+' .TargetWrap').css('background-color', 'rgb(32,32,32)'); //edit css of curFile
     console.log(curFile.data);
     setData(curFile.data);    //load file data
+    const ext = getExtensionFromName(file.name);
+    setLanguage(ext);
     showEditor(true);         //display editor
 
     focusOnEditor();
@@ -190,4 +192,11 @@ function getWorkFileRecordIndex(file) {
     for(var i=0;i<len;i++) 
         if(workfileRecord[i].path == file.path) return i;         
     return -1;
+}
+
+function getExtensionFromName(filename) {
+  console.log(filename)
+  let dotIndex = filename.indexOf(".");
+  if(dotIndex == -1) return '';
+  return filename.substring(dotIndex+1);
 }

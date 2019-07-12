@@ -7,10 +7,8 @@ var config = {
     
     "inputFilePath":"",
     "outputFilePath":"",
-    "buildFilePath":"",
     
     "curZoom":"1",
-    "language":"java",
     
     "projectFolders":[]
 }
@@ -23,6 +21,8 @@ var SettingsIsVisible = false;
 var isCtrl = false;
 
 var randomIndex = 0;
+
+var curLang = {};
 
 function initialise() {
     loadDefaultValues();
@@ -356,16 +356,9 @@ function getOutputFilePath() {
         $('#input-OutputPath').val(path);
     });
 }
-function getBuildFilePath() {
-    getFilePath(function(path) {
-        $('#input-BuildPath').val(path);
-    });
-}
 function updateIOFilePath() {
     config.inputFilePath = inputFile.path = $('#input-InputPath').val();
     config.outputFilePath = outputFile.path = $('#input-OutputPath').val();
-    config.buildFilePath = $('#input-BuildPath').val();
-    loadBuildFile(config.buildFilePath);            
     updateSessionData(true);
     alert('Path has been updated.');
 }
@@ -408,13 +401,6 @@ function loadDefaultValues() {
 
     //Zoom Level
     curZoom = config.curZoom;
-
-    //Load Build File
-    loadBuildFile(config.buildFilePath);
-    $('#input-BuildPath').val(config.buildFilePath);
-
-    //Load Language
-    // setLanguage(config.language);
 
     //Project Folders
     var openProjects = config.projectFolders;

@@ -132,11 +132,6 @@
                         <td><input id="input-OutputPath"></td>
                         <td><button class="chooseBtn" onclick="getOutputFilePath()">CHOOSE FILE</button></td>
                     </tr>
-                    <tr>
-                        <td class="io-label">Commands File Path:</td>
-                        <td><input id="input-BuildPath"></td>
-                        <td><button class="chooseBtn" onclick="getBuildFilePath()">CHOOSE FILE</button></td>
-                    </tr>
                 </table>
                 <div id="btn-IOPath" onclick="updateIOFilePath()"> UPDATE </div>
             </div>
@@ -209,6 +204,7 @@
         <script src="thirdparty/ace-builds/src-min-noconflict/ext-language_tools.js"></script>
         <!-- load ace modelist extension -->
         <script src="thirdparty/ace-builds/src-min-noconflict/ext-modelist.js"></script>
+        <script src="js/language.js"></script>
         <script>
           
             // trigger extension
@@ -245,14 +241,17 @@
                     editor.setValue(data, 1);
                 }
             }
-            // function setLanguage(language) {
-            //     editor.session.setMode("ace/mode/"+language);
-            // }
+            function setLanguage(extension) {
+                
+                curLang = getLanguage(extension);
+
+                // Set Editor Language Mode
+                editor.session.setMode(curLang.editorRes);
+            }
             function focusOnEditor() {
                 editor.focus();
                 editor.gotoLine(0);
             }
-            
         </script>
 
     </body>

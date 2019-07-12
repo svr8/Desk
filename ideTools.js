@@ -30,7 +30,7 @@ function compile() {
     showIOPanel(true);
 
     //Execute compile code from "buildFilePath"
-    execute(getCompileCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
+    execute(curLang.shellRes.getCompileCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout); 
     });
 }
@@ -49,12 +49,16 @@ function run() {
     //Show IO Panel
     showIOPanel(true);
     
-    execute(getRunCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
+    execute(curLang.shellRes.getRunCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
         displayRunResults(error, stderr, stdout);
     });
 }
 function stop() {
-    execute(getStopCommand(), function(error, stderr, stdout) {
+  var fileAbsolutePath = curFile.path,
+    fileContainerPath = getDirectoryParentPath(curFile.path),
+    fileName = curFile.name.substr(0, curFile.name.indexOf("."));
+  
+    execute(curLang.shellRes.getStopCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout);
         $('#outputTab').val('Process Stopped!');
         stopPressed = false;
