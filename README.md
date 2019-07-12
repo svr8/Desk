@@ -5,19 +5,28 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 
 # Downloads
 + [Windows](http://www.mediafire.com/file/2aurp6k25dasua1/Desk+Setup-1.1.3.zip)
-+ [Ubuntu](https://www.mediafire.com/file/92rxcyj5f5b6gbb/ubuntu-1.1.4.zip/file)
++ [Linux(.deb)](https://www.mediafire.com/file/null/desk_1.1.4_amd64.deb/file)
++ [Linux(Portable)](https://www.mediafire.com/file/pdx6a3l2xdt4y3z/Desk-linux-x64.zip/file)
++ [Mac](https://www.mediafire.com/file/ufkhnlmozw6kvb0/Desk-darwin-x64.zip/file)
 
-# How to use
-+ You'll find a `commands` folder after you download and extract.
-Find the file `java.js`. This is a build file that contains terminal commands for java, to compile, run and stop. Duplicate this file and edit the commands to suit your language.<br/>
-+ In the app, set the build file path as the file you created. The input and output file paths are files that the ide will use to store input and output, respectively. Create 2 .txt files and set their paths. That's it, you're ready to code now.
+# Instructions
+## On First Time Startup
+- Create 2 empty files(example: `input.txt`, `output.txt`) anywhere you desire on your computer. These files will be used as input output sources.
+- Go to settings(button on bottom left).
+- You'll see 2 options to set the files. Set them as the files you just created
+- Run the executable file and you're ready to go. No language-specific prequisites as in previous versions. The IDE will automatically detect the file from its file extensions(`.java`, `.c`, `.cpp`, `.py`) and configure itself accordingly.
+
+## Important Keyboard Shortcuts
+- Ctrl + 1 : Compile
+- Ctrl + 2 : Start Execution
+- Ctrl + 3 : Stop Execution
+
 # Running Locally
 ## Prerequisites
 + [Git](https://git-scm.com/)
 + [nodejs and npm](https://nodejs.org/en/)
 
 ## Setup
-
 + Install electron globally<br/>
 `npm install electron -g`<br/>
 You might face installation issues. If the above fails, this should work:<br/>
@@ -34,8 +43,12 @@ You might face installation issues. If the above fails, this should work:<br/>
 + Run<br/>
 `npm start`
 
-+ Build<br/>
-`build -w`
+## Build
+Please refer to the instructions [here](https://www.christianengvall.se/electron-installer-debian-package/).
+
+## Contribution
+Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages.
+Moreover, there is a custom source-code-editor in pre-alpha stage [here](https://github.com/MFOSSociety/sourcecodearea).
 
 # Credits
 Designed By : [Divyakant Singh](https://www.behance.net/divyakantsingh) and [Veer Singh](https://www.instagram.com/weavingweb/) <br/>
