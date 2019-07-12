@@ -10,7 +10,6 @@ var config = {
     "buildFilePath":"",
     
     "curZoom":"1",
-    "language":"java",
     
     "projectFolders":[]
 }
@@ -23,6 +22,8 @@ var SettingsIsVisible = false;
 var isCtrl = false;
 
 var randomIndex = 0;
+
+var curLang = {};
 
 function initialise() {
     loadDefaultValues();
@@ -410,8 +411,8 @@ function loadDefaultValues() {
     curZoom = config.curZoom;
 
     //Load Build File
-    loadBuildFile(config.buildFilePath);
-    $('#input-BuildPath').val(config.buildFilePath);
+    // loadBuildFile(config.buildFilePath);
+    // $('#input-BuildPath').val(config.buildFilePath);
 
     //Load Language
     // setLanguage(config.language);

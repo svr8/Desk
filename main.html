@@ -209,6 +209,7 @@
         <script src="thirdparty/ace-builds/src-min-noconflict/ext-language_tools.js"></script>
         <!-- load ace modelist extension -->
         <script src="thirdparty/ace-builds/src-min-noconflict/ext-modelist.js"></script>
+        <script src="js/language.js"></script>
         <script>
           
             // trigger extension
@@ -245,14 +246,17 @@
                     editor.setValue(data, 1);
                 }
             }
-            // function setLanguage(language) {
-            //     editor.session.setMode("ace/mode/"+language);
-            // }
+            function setLanguage(extension) {
+                
+                curLang = getLanguage(extension);
+
+                // Set Editor Language Mode
+                editor.session.setMode(curLang.editorRes);
+            }
             function focusOnEditor() {
                 editor.focus();
                 editor.gotoLine(0);
             }
-            
         </script>
 
     </body>

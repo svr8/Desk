@@ -141,11 +141,11 @@ function getFilePath(callback) {
 
 function loadBuildFile(buildFilePath) {
     if (fs.existsSync(buildFilePath)) {
-        loadJS(buildFilePath);
-        console.log('Build file loaded successfully');
+      loadJS(buildFilePath);
+      console.log('Build file loaded successfully');
     }
     else {
-        if(!config.startup)
+        // if(!config.startup)
             alert('Build file not found.');
     }
 }
