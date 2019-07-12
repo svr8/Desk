@@ -1,10 +1,16 @@
 # Desk
 A light-weight ide for competitive programming. The editor uses [ace-editor](https://github.com/ajaxorg/ace) as syntax highlighter and [electron](https://electronjs.org/) that wraps up everything.
 
+# Features
+- Auto Detect language from file extensions and configure its system commands accordingly. No need to setup build files, install and ready to go.
+- There is a IO panel to quickly change inputs. Custom IO files are also supported.
+- Keyboard shortcuts to compile/run/stop.
+- Minimal design, dark theme.
+
 ![Screenshot](https://github.com/svr8/Desk/blob/master/Preview.PNG)
 
 # Downloads
-+ [Windows](http://www.mediafire.com/file/2aurp6k25dasua1/Desk+Setup-1.1.3.zip)
++ [Windows](https://www.mediafire.com/file/3g7d2dmntep23ig/Desk-win32-ia32.zip/file)
 + [Linux(.deb)](https://www.mediafire.com/file/null/desk_1.1.4_amd64.deb/file)
 + [Linux(Portable)](https://www.mediafire.com/file/pdx6a3l2xdt4y3z/Desk-linux-x64.zip/file)
 + [Mac](https://www.mediafire.com/file/ufkhnlmozw6kvb0/Desk-darwin-x64.zip/file)
