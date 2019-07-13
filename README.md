@@ -26,6 +26,7 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 - Ctrl + 1 : Compile
 - Ctrl + 2 : Start Execution
 - Ctrl + 3 : Stop Execution
+- Ctrl + I : Toggle I/O Panel
 
 # Running Locally
 ## Prerequisites
