@@ -13,7 +13,6 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 + [Windows](https://www.mediafire.com/file/3g7d2dmntep23ig/Desk-win32-ia32.zip/file)
 + [Linux(.deb)](http://www.mediafire.com/file/74qq1c7yoq3ufca/desk_1.1.4_amd64.deb/file)
 + [Linux(Portable)](https://www.mediafire.com/file/pdx6a3l2xdt4y3z/Desk-linux-x64.zip/file)
-+ [Mac](https://www.mediafire.com/file/ufkhnlmozw6kvb0/Desk-darwin-x64.zip/file)
 
 # Instructions
 ## On First Time Startup
@@ -53,9 +52,14 @@ You might face installation issues. If the above fails, this should work:<br/>
 ## Build
 Please refer to the instructions [here](https://www.christianengvall.se/electron-installer-debian-package/).
 
+# More
+
+
+
 ## Contribution
 Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages.
 Moreover, there is a custom source-code-editor in pre-alpha stage [here](https://github.com/MFOSSociety/sourcecodearea).
+The [Mac version](https://www.mediafire.com/file/ufkhnlmozw6kvb0/Desk-darwin-x64.zip/file) has got bugs. Need help here too.
 
 # Credits
 Designed By : [Divyakant Singh](https://www.behance.net/divyakantsingh) and [Veer Singh](https://www.instagram.com/weavingweb/) <br/>
