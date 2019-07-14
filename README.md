@@ -52,10 +52,6 @@ You might face installation issues. If the above fails, this should work:<br/>
 ## Build
 Please refer to the instructions [here](https://www.christianengvall.se/electron-installer-debian-package/).
 
-# More
-
-
-
 ## Contribution
 Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages.
 Moreover, there is a custom source-code-editor in pre-alpha stage [here](https://github.com/MFOSSociety/sourcecodearea).
