@@ -18,10 +18,12 @@ function compile() {
     var fileAbsolutePath = curFile.path,
         fileContainerPath = getDirectoryParentPath(curFile.path),
         fileName = curFile.name.substr(0, curFile.name.indexOf("."));
-    
+    console.log("!" + fileAbsolutePath)
+    console.log(curLang);
     //Save current file
     curFile.data = getData();
     saveFile(curFile);
+    setLanguage( getExtensionFromName(curFile.path) );
     
     //Status Update
     $('#outputTab').val('Compiling...');
@@ -42,6 +44,8 @@ function run() {
     //Save input file
     inputFile.data = $('#inputTab').val();
     saveFile(inputFile);
+    console.log('>'+curFile.path)
+    setLanguage( getExtensionFromName(curFile.path) );
 
     //Status Update    
     $('#outputTab').val('Executing...');
@@ -57,6 +61,9 @@ function stop() {
   var fileAbsolutePath = curFile.path,
     fileContainerPath = getDirectoryParentPath(curFile.path),
     fileName = curFile.name.substr(0, curFile.name.indexOf("."));
+    console.log('> '+curFile.path)
+    setLanguage( getExtensionFromName(curFile.path) );
+
   
     execute(curLang.shellRes.getStopCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout);

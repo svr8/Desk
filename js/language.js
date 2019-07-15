@@ -70,15 +70,15 @@ const languageExtensionMap = {
     editorRes: 'ace/mode/tsx',
     shellRes: {
       getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-        return ``;
+        return `echo Cannot Compile .tsx`;
       },
 
       getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-        return ``;
+        return `echo Cannot Run .tsx`;
       },
 
       getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-        return '';
+        return 'echo Cannot Stop .tsx';
       }
 
     }
@@ -88,5 +88,5 @@ const languageExtensionMap = {
 const getLanguage = extension => {
   if(languageExtensionMap[extension])
     return languageExtensionMap[extension];
-  return languageExtensionMap.tsx;
+  return languageExtensionMap.java;
 }

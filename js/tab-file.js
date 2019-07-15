@@ -44,3 +44,9 @@ function isValidNewFile(parentFolder, fileName) {
     //Reload sidemenu contents
     reloadFolder(parentFolder);
 }
+
+function getExtension(filePath) {
+  let index = filePath.indexOf(".");
+  if(index == -1) return '';
+  return filePath.substring(index+1);
+}

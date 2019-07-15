@@ -47,7 +47,7 @@ function fileRead(file, callback) {
 
 function saveFile(file) {
     //Update status
-    console.log('Saving File');
+    console.log('Saving File ' + file.path);
 
     //If file does not exist
     if (!file.exists)
@@ -60,15 +60,18 @@ function saveFile(file) {
                 return;
             }
             console.log("File update: successful!");
-            setFileSaveStatus(file, true);                                                    
+            setFileSaveStatus(file, true);  
         });
 }
 function createNewFileAt(path) {
     fs.writeFile(path, '', (err) => {
         if(err)
             alert('File create: unsccessful!\n'+err.message);
-        else
+        else {
             console.log('File create: successful!');
+            console.log('> '+path)
+            setLanguage(getExtensionFromName(path));
+        }
     });
 }
 function createNewFolderAt(path) {
@@ -95,6 +98,8 @@ function createNewFile(file) {
                 $("#WT-"+file.id+" .Text-Tab").html(file.name);
                 reloadFolder(folderReference(getDirectoryParentPath(file.path)));
                 reloadWorkFiles();
+                console.log('>'+path);
+                setLanguage( getExtensionFromName(path) );
                 setFileSaveStatus(file, true);                                                                    
             }
         });

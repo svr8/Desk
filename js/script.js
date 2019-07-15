@@ -7,6 +7,7 @@ var config = {
     
     "inputFilePath":"",
     "outputFilePath":"",
+    "defaultLanguageExtension": "java",
     
     "curZoom":"1",
     
@@ -30,7 +31,7 @@ function initialise() {
     
     //First startup
     if(config.startup) {
-        showSettings(!SettingsIsVisible);
+        showSettings(true);
         config.startup = false;
         updateSessionData(false);
     }
@@ -39,6 +40,9 @@ function initialise() {
 
     //Set default state of Editor
     showEditor(isEditorVisible);
+
+    //Default Language Mode
+    curLang = getLanguage(config.defaultLanguageExtension);
 
     //Style: IO-Content
     var ta = document.getElementsByClassName('IO-Content');
@@ -268,6 +272,7 @@ $(document).ready(function(){
                 //CTRL + S: Save current file
                 case 83 : curFile.data = getData();
                           saveFile(curFile); 
+                          
                           break;
                 //CTRL + W: Close current tab
                 case 87 : closeWorkTab(curFile);

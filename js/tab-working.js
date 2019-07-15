@@ -63,7 +63,8 @@ function selectWorkingFile(file) {
     $('#WT-'+curFile.id+' .TargetWrap').css('background-color', 'rgb(32,32,32)'); //edit css of curFile
     console.log(curFile.data);
     setData(curFile.data);    //load file data
-    const ext = getExtensionFromName(file.name);
+    const ext = getExtensionFromName(file.path);
+    console.log('> '+ext);
     setLanguage(ext);
     showEditor(true);         //display editor
 
@@ -195,7 +196,6 @@ function getWorkFileRecordIndex(file) {
 }
 
 function getExtensionFromName(filename) {
-  console.log(filename)
   let dotIndex = filename.indexOf(".");
   if(dotIndex == -1) return '';
   return filename.substring(dotIndex+1);
