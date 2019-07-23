@@ -11,7 +11,7 @@ var config = {
     
     "curZoom":"1",
     
-    "projectFolders":[]
+    "projectFolders": [],
 }
 
 var curZoom = 1,
@@ -206,6 +206,7 @@ function hideElementName() {
     $('#elementName').fadeOut(150);
 }
 $(document).ready(function(){
+    initialise();
     //MOUSE EVENT LISTENERS:
     //Settings-Button
     $('#sidebar-Settings').on('click', function(){
@@ -272,7 +273,7 @@ $(document).ready(function(){
                 //CTRL + S: Save current file
                 case 83 : curFile.data = getData();
                           saveFile(curFile); 
-                          
+
                           break;
                 //CTRL + W: Close current tab
                 case 87 : closeWorkTab(curFile);

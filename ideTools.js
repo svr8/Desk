@@ -18,8 +18,6 @@ function compile() {
     var fileAbsolutePath = curFile.path,
         fileContainerPath = getDirectoryParentPath(curFile.path),
         fileName = curFile.name.substr(0, curFile.name.indexOf("."));
-    console.log("!" + fileAbsolutePath)
-    console.log(curLang);
     //Save current file
     curFile.data = getData();
     saveFile(curFile);
@@ -32,6 +30,11 @@ function compile() {
     showIOPanel(true);
 
     //Execute compile code from "buildFilePath"
+    fileAbsolutePath = replaceAll(fileAbsolutePath, ' ', '\\ ');
+    fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
+    fileName = replaceAll(fileName, ' ', '\\ ');
+    console.log('##############');
+    console.log(fileAbsolutePath);
     execute(curLang.shellRes.getCompileCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout); 
     });
@@ -52,7 +55,9 @@ function run() {
 
     //Show IO Panel
     showIOPanel(true);
-    
+    fileAbsolutePath = replaceAll(fileAbsolutePath, ' ', '\\ ');
+    fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
+    fileName = replaceAll(fileName, ' ', '\\ ');
     execute(curLang.shellRes.getRunCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
         displayRunResults(error, stderr, stdout);
     });
@@ -64,7 +69,9 @@ function stop() {
     console.log('> '+curFile.path)
     setLanguage( getExtensionFromName(curFile.path) );
 
-  
+    fileAbsolutePath = replaceAll(fileAbsolutePath, ' ', '\\ ');
+    fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
+    fileName = replaceAll(fileName, ' ', '\\ ');
     execute(curLang.shellRes.getStopCommand(fileAbsolutePath, fileContainerPath, fileName), function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout);
         $('#outputTab').val('Process Stopped!');

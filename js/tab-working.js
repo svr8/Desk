@@ -4,6 +4,7 @@ var curFile = null;
 var workfileRecord = [];
 var inputFile=new WorkingTab(-1, ''),
     outputFile=new WorkingTab(-1, '');
+    
 function WorkingTab(id, absolutePath) {
     this.id = id;
     this.path = absolutePath;

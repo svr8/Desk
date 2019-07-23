@@ -20,7 +20,6 @@ $(document).ready(function() {
             } else{
                 var newId = 0;
                 if(projectFolderRecord.length>0) newId = projectFolderRecord[projectFolderRecord.length-1].id + 1;
-                
                 var pf = new ProjectFolderTab(newId, folderPaths[0]);
                 addProjectFolder(pf);
                 updateRandomIndex(newId);
