@@ -122,72 +122,39 @@
         </div>
 
         <div class="Settings">
-            <div class="Settings-Wrap">
-            <div class="IOContainer">
-                <table>
-                    <tr>
-                        <td class="io-label">Input File Path:</td>
-                        <td><input id="input-InputPath"></div></td>
-                        <td><button class="chooseBtn" onclick="getInputFilePath()">CHOOSE FILE</button></td>
-                    </tr>
-                    <tr>
-                        <td class="io-label">Output File Path:</td>
-                        <td><input id="input-OutputPath"></td>
-                        <td><button class="chooseBtn" onclick="getOutputFilePath()">CHOOSE FILE</button></td>
-                    </tr>
-                </table>
-                <div id="btn-IOPath" onclick="updateIOFilePath()"> UPDATE </div>
-            </div>
-            <div class="KeyBindingsContainer">
-                <table>
-                    <tr>
-                        <td align="right">New File</td>
-                        <td>Ctrl + N</td> 
-                    </tr>
-                    <tr>
-                            <td align="right">Save File</td>
-                            <td>Ctrl + S</td> 
-                    </tr>
-                    <tr>
-                            <td align="right">Close File</td>
-                            <td>Ctrl + W</td> 
-                    </tr>
-                    <tr>
-                            <td align="right">Toggle Sidemenu</td>
-                            <td>Ctrl + B</td> 
-                    </tr>
-                    <tr>
-                            <td align="right">Toggle IO Panel</td>
-                            <td>Ctrl + I</td> 
-                    </tr>
-                    <tr>
-                            <td align="right">Zoom In</td>
-                            <td>Ctrl + +</td> 
-                    </tr>
-                    <tr>
-                            <td align="right">Zoom Out</td>
-                            <td>Ctrl + -</td> 
-                    </tr>
+          <div class="Settings-Wrap">
+            <div class="settings-sidemenu">
+              <div class="settings-sidemenu-tab" onclick='showSetting("settings-content-io")'>IO Files</div>
+              <div class="settings-sidemenu-tab" onclick='showSetting("settings-content-build")'>Build Commands</div>
+              <div class="settings-sidemenu-tab" onclick='showSetting("settings-content-help")'>Help</div>
+              <div class="settings-sidemenu-tab" onclick='showSetting("settings-content-about")'>About</div>
 
-                    <tr>
-                            <td align="right">Compile</td>
-                            <td>Ctrl + 1</td> 
-                    </tr>
-                    <tr>
-                            <td align="right">Execute</td>
-                            <td>Ctrl + 2</td> 
-                    </tr>
-                    <tr>
-                            <td align="right">Run</td>
-                            <td>Ctrl + 3</td> 
-                    </tr>
-                </table>
-               
             </div>
-            <div class="credits">
-                Made with <img src="./images/heart.png" height="16" width="16">  by Shikhar Vaish
+            
+            <div class="settings-content-wrap">
+              <div id="settings-content-io" class="settings-content">
+                <div class="setting-card">
+                  <div class="iopath-input">
+                    <input id="input-InputPath" class="iopath-input-widget iopath-text" placeholder="Enter Input File Path">
+                    <div class="iopath-input-widget iopath-fetchbtn" onclick="getInputFilePath()">Choose File</div>
+                  </div>
+                  <div class="iopath-input">
+                    <input id="input-OutputPath" class="iopath-input-widget iopath-text" placeholder="Enter Output File Path">
+                    <div class="iopath-input-widget iopath-fetchbtn" onclick="getOutputFilePath()">Choose File</div>
+                  </div>
+                  <div class="iopath-input">
+                    <div class="iopath-save" onclick="updateIOFilePath()">SAVE</div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="settings-content-build" class="settings-content">
+                <div class="setting-card">
+
+                </div>
+              </div>
             </div>
-         </div>
+          </div>
         </div>
        
         <pre id="editor"></pre>
@@ -208,6 +175,7 @@
         <!-- load ace modelist extension -->
         <script src="thirdparty/ace-builds/src-min-noconflict/ext-modelist.js"></script>
         <script src="js/language.js"></script>
+        <script src="js/settingsController.js"></script>
         <script>
           
             // trigger extension

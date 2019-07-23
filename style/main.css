@@ -439,20 +439,132 @@ body
     width: calc(100% - 40px);
     height: 100%;
 
-    background-image: url('../images/Settings-Background.png');
-    background-size: cover;
-    z-index: 2;
+    background: rgb(27, 27, 23);
+    /* z-index: 3; */
     font-family: Data;
 
     display: none;
 }
-
-.Settings-Wrap
-{
-    position: relative;
-    left: 30%;
-    top: 100px;
+.settings-Wrap {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }
+.settings-sidemenu {
+  position: absolute; 
+  top: 0px;
+  left: 0px;
+  width: 25%; 
+  height: 100%;
+
+  overflow-x: hidden;
+  background-color: rgb(27, 27, 23);
+  border-right: 0.2px solid rgb(175, 175, 175);
+}
+.settings-sidemenu-tab {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 25px;
+
+  color: white;
+  text-align: center;
+  padding: 20px 0px;
+  font-size: 2.5vh;
+  font-family: IO-Title;
+  transition: 0.2s;
+}
+
+.settings-sidemenu-tab:hover {
+  cursor: pointer;
+  background: rgb(41, 40, 40);
+}
+.settings-content-wrap {
+  position: absolute; 
+  top: 0px; 
+  left: 25%; 
+  width: 75%; 
+  height: 100%;
+}
+
+.setting-card {
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  width: 50%;
+  min-height: 180px;
+  height: auto;
+
+  padding: 15px;
+  background-color: rgb(22, 22, 18);
+  padding: 10px;
+  /* box-shadow: 0px 5px 55px black; */
+}
+
+.iopath-input {
+  position: relative;
+  top: 10px;
+  left: 5%;
+  width: 360px;
+  height: auto;
+
+  font-family: Data;
+}
+.iopath-input-widget {
+  position: relative;
+  top: 0px;
+  margin-top: 5px;
+  display: inline-block;
+  height: 40px;
+}
+.iopath-text {
+  font-family: Data;
+  font-size: 2vh;
+  padding: 3px 5px;
+  background-color: rgb(20, 20, 20);
+  color: #FAFAFA;
+  border: none;
+  outline: none;
+}
+.iopath-fetchbtn {
+  left: 20px;
+  font-family: TitleFont;
+  font-size: 2.1vh;
+
+  width: 120px;
+  text-align: center;
+  line-height: 50px;
+  vertical-align: middle;
+  background: rgb(20, 20, 20);
+  color: white;
+  transition: 0.14s;
+}
+.iopath-fetchbtn:hover {
+  background: rgb(77, 77, 77); 
+  cursor: pointer; 
+}
+.iopath-save {
+  position: relative;
+  top: 15px;
+  left: 30%;
+  width: 50%;
+  height: auto;
+  text-align: center;
+  vertical-align: middle;
+  padding: 5px 0px;
+  font-size: 2.5vh;
+  background: #4D4D4D;
+  color: #FAFAFA;
+  transition: 0.14s;
+}
+.iopath-save:hover {
+  cursor: pointer;
+  background-color: rgb(20, 153, 20);
+}
+
 .IOContainer
 {
     position: relative;
@@ -536,55 +648,6 @@ textarea
     background-color: #33C387;
 }
 
-.KeyBindingsContainer
-{
-    position: relative;
-    top: 18%;
-    left: 0px;
-    display: block;
-    margin-top: 30px;
-    width: 670px;
-    height: 300px;
-
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: white;
-    background: rgba(4,4,4, 0.8); 
-    box-shadow: 0px 0px 20px black;
-    border-radius: 8px;   
-}
-.KeyBindingsContainer td
-{
-    position: relative;
-    left: 75%;
-    font-family: Data;
-    font-size: 20px;
-    color: white;
-}
-.KeyBindingsContainer td:first-child
-{
-    padding-right: 20px;
-}
-.credits
-{
-    position: relative;
-    top: 20%;
-    left: 0px;
-    display: block;
-    margin-top: 30px;
-    width: 670px;
-    height: 40px;
-
-    text-align: center;
-    vertical-align: middle;
-    line-height: 40px;
-
-    font-size: 18px;
-    color: white;
-    background: rgba(4,4,4, 0.8); 
-    box-shadow: 0px 0px 20px black;
-    border-radius: 8px;    
-}
 .heart
 {
     width: 256px;

@@ -308,7 +308,7 @@ $(document).ready(function(){
                 //CTRL + -: Zoom out
                 case 189: zoomOut();
                           break;
-                default : break;
+                default : console.log('nigga wut?!?!'); break;
             }
             isCtrl = false;
         }
@@ -338,13 +338,20 @@ function showSettings(state) {
     
     if(SettingsIsVisible) {
         $('.Settings').fadeIn(150);
-        $("#sidebar-Settings").css('background-image', "url('images/Settings-Sel.png')");
+        $("#sidebar-Settings").css('background-image', "url('images/Button-CloseTab-Sel.png')");
         $('.Sidebar').css({'box-shadow': '0px 0px 8px black', 'z-index':'3'});
+
+        // hide sidebar buttons
+        $(".Sidebar-Button").hide();
+        $("#sidebar-Settings").show(); // hack
     }
     else {
         $('.Settings').fadeOut(150);
         $("#sidebar-Settings").css('background-image', "url('images/Settings-Def.png')");
         $('.Sidebar').css('box-shadow', 'none');
+
+        // show sidebar buttons
+        $(".Sidebar-Button").show();        
     }
 }
 function updateSessionData(notifyUpdate) {
