@@ -15,7 +15,6 @@
         
         <!-- Main -->
         <link rel="stylesheet" type="text/css" href="style/main.css">
-        <script src="js/script.js"></script>
         <script src="ideTools.js"></script>
 
         <!-- File Manager -->
@@ -72,6 +71,7 @@
                 <div class="Prompt-Button" id="Prompt-Cancel">Cancel</div>                                                
             </div>
         </div>
+
         <div class="Sidebar">
             <!-- Current Folder -->
             <div class="Sidebar-Button" id="sidebar-CurrentFolder"></div>
@@ -132,6 +132,8 @@
             </div>
             
             <div class="settings-content-wrap">
+              
+              <!-- IO Files Settings -->
               <div id="settings-content-io" class="settings-content">
                 <div class="setting-card">
                   <div class="iopath-input">
@@ -148,9 +150,37 @@
                 </div>
               </div>
 
+              <!-- Build Command Settings -->
               <div id="settings-content-build" class="settings-content">
                 <div class="setting-card">
+                  <div class="tab-row">
+                    <div class="tab-row-item">Edit existing extensions</div>
+                    <div class="tab-row-item">New extension</div>
+                  </div>
+                  <div class="setting-card-tab-content">
+                    <div id="update-build" class="setting-sub-content">
+                      <div class="setting-card-dropdown-title" id="extension-chooser-trigger">Choose Extension</div>
+                      <div class="setting-card-dropdown-list" id="extension-chooser-list">
+                        <div class="setting-card-dropdown-list-item">java</div><div class="setting-card-dropdown-list-item">c</div><div class="setting-card-dropdown-list-item">cpp</div><div class="setting-card-dropdown-list-item">py</div><div class="setting-card-dropdown-list-item">tsx</div>
+                      </div>
 
+                      <div id="edit-build" class="setting-sub-content">
+                        <div class="iopath-input">
+                          <input id="input-compileCommand" class="iopath-input-widget iopath-text" placeholder="Enter Compile Command">
+                        </div>
+                        <div class="iopath-input">
+                          <input id="input-runCommand" class="iopath-input-widget iopath-text" placeholder="Enter Run Command">
+                        </div>
+                        <div class="iopath-input">
+                          <input id="input-stopCommand" class="iopath-input-widget iopath-text" placeholder="Enter Stop Command">
+                        </div>
+                        <div class="iopath-input">
+                          <div class="iopath-save" onclick="updateIOFilePath()">SAVE</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
                 </div>
               </div>
             </div>
@@ -158,6 +188,7 @@
         </div>
        
         <pre id="editor"></pre>
+
         <div class="IO">
             <div class="IOBlock">
                 <div class="IO-Header">INPUT</div>
@@ -168,6 +199,7 @@
                 <textarea class="IO-Content" id="outputTab"></textarea>
             </div>
         </div>
+
         <!-- load ace -->
         <script src="thirdparty/ace-builds/src-min-noconflict/ace.js"></script>
         <!-- load ace language tools -->
@@ -176,6 +208,8 @@
         <script src="thirdparty/ace-builds/src-min-noconflict/ext-modelist.js"></script>
         <script src="js/language.js"></script>
         <script src="js/settingsController.js"></script>
+        <script src="js/script.js"></script>
+
         <script>
           
             // trigger extension

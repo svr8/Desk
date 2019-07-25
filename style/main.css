@@ -492,27 +492,30 @@ body
 
 .setting-card {
   position: absolute;
-  top: 30%;
-  left: 25%;
-  width: 50%;
+  top: 10%;
+  left: 15%;
+  width: 70%;
   min-height: 180px;
   height: auto;
 
   padding: 15px;
   background-color: rgb(22, 22, 18);
   padding: 10px;
-  /* box-shadow: 0px 5px 55px black; */
+  box-shadow: 0px 5px 55px black;
 }
-
+#settings-content-build .setting-card {
+  height: 500px;
+}
 .iopath-input {
   position: relative;
   top: 10px;
   left: 5%;
-  width: 360px;
+  width: 500px;
   height: auto;
 
   font-family: Data;
 }
+
 .iopath-input-widget {
   position: relative;
   top: 0px;
@@ -524,10 +527,17 @@ body
   font-family: Data;
   font-size: 2vh;
   padding: 3px 5px;
-  background-color: rgb(20, 20, 20);
-  color: #FAFAFA;
+  color: rgb(241, 236, 236);
   border: none;
+  background: transparent;
+  border-bottom: 1px solid white;
   outline: none;
+}
+#edit-build .iopath-input {
+  top: 60px;
+}
+#edit-build .iopath-input-widget {
+  width: 420px;
 }
 .iopath-fetchbtn {
   left: 20px;
@@ -538,7 +548,7 @@ body
   text-align: center;
   line-height: 50px;
   vertical-align: middle;
-  background: rgb(20, 20, 20);
+  background: rgb(68, 68, 68);
   color: white;
   transition: 0.14s;
 }
@@ -563,6 +573,71 @@ body
 .iopath-save:hover {
   cursor: pointer;
   background-color: rgb(20, 153, 20);
+}
+
+.setting-card .tab-row {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: auto auto;
+
+  /* border: 1px solid red; */
+}
+.tab-row-item {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+
+  padding: 10px;
+  font-size: 3vh;
+  color: #FAFAFA;
+}
+
+.tab-row-item:hover {
+  cursor: pointer;
+  border-bottom: 1px solid white;
+}
+#extension-chooser-trigger {
+  position: relative;
+  top: 30px;
+  left: 30px;
+  font-size: 2.5vh;
+  color: white;
+  top: 30px;
+  left: 30px;
+  background-color: #3d3d3d;
+  width: 170px;
+  padding: 5px;
+  height: auto;
+}
+.setting-card-dropdown-title:hover {
+  cursor: pointer;
+}
+.setting-card-dropdown-list {
+  position: relative;
+  top: 40px;
+  left: 30px;
+  color: #FAFAFA;
+  display: block;
+
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+}
+.setting-card-dropdown-list-item {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 50px;
+  height: 20px;
+  font-size: 2vh;
+  padding: 10px;
+  transition: 0.15s;
+}
+.setting-card-dropdown-list-item:hover {
+  cursor: pointer;
+  background-coloR: rgb(97, 97, 97);
 }
 
 .IOContainer

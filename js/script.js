@@ -2,7 +2,7 @@ const {webFrame} = require('electron');
 const configFile = require('electron-json-config');
 
 //Default Configs
-var config = {
+var defaultConfig = {
     "startup":"true",
     
     "inputFilePath":"",
@@ -12,6 +12,93 @@ var config = {
     "curZoom":"1",
     
     "projectFolders": [],
+
+    "languageExtensionMap": {
+      'java': { 
+        editorRes: 'ace/mode/java',
+        shellRes: {
+          getCompileCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
+            return `javac ${fileAbsolutePath}`;
+          },
+    
+          getRunCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
+            return `java -cp ${fileContainerPath} ${fileName} < ${inputFile.path} > ${outputFile.path}`;
+          },
+    
+          getStopCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
+            return 'pkill java';
+          }
+    
+        } 
+      },
+      'c': { 
+        editorRes: 'ace/mode/c_cpp',
+        shellRes: {
+          getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `gcc -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}`;
+          },
+    
+          getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `${fileContainerPath}/${fileName}.out`;
+          },
+    
+          getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `pkill ${fileName}.out`;
+          }
+    
+        }
+      },
+      'cpp': { 
+        editorRes: 'ace/mode/c_cpp',
+        shellRes: {
+          getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `g++ -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}`;
+          },
+    
+          getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `${fileContainerPath}/${fileName}.out`;
+          },
+    
+          getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `pkill ${fileName}.out`;
+          }
+    
+        }
+      },
+      'py': { 
+        editorRes: 'ace/mode/python',
+        shellRes: {
+          getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `python ${fileAbsolutePath}`;
+          },
+    
+          getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `python ${fileAbsolutePath}`;
+          },
+    
+          getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return 'pkill python';
+          }
+        }
+      },
+      'tsx': { 
+        editorRes: 'ace/mode/tsx',
+        shellRes: {
+          getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `echo Cannot Compile .tsx`;
+          },
+    
+          getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return `echo Cannot Run .tsx`;
+          },
+    
+          getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
+            return 'echo Cannot Stop .tsx';
+          }
+    
+        }
+      },
+    },
 }
 
 var curZoom = 1,
@@ -24,6 +111,7 @@ var isCtrl = false;
 var randomIndex = 0;
 
 var curLang = {};
+var languageExtensionMap = {};
 
 function initialise() {
     loadDefaultValues();
@@ -35,6 +123,7 @@ function initialise() {
         config.startup = false;
         updateSessionData(false);
     }
+    showSettings(true);
     //Set default state of IO Panel
     showIOPanel(ioPanelIsVisible);
 
@@ -42,7 +131,7 @@ function initialise() {
     showEditor(isEditorVisible);
 
     //Default Language Mode
-    curLang = getLanguage(config.defaultLanguageExtension);
+    curLang = getLanguage('java');
 
     //Style: IO-Content
     var ta = document.getElementsByClassName('IO-Content');
@@ -184,7 +273,7 @@ function initialise() {
         });
     
     //Set default zoom value
-    webFrame.setZoomFactor(curZoom);
+    // webFrame.setZoomFactor(curZoom);
 
 }
 function isHovering(selector) {
@@ -375,6 +464,9 @@ function updateIOFilePath() {
     updateSessionData(true);
     alert('Path has been updated.');
 }
+function updateBuildCommands(ext, compileCommand, runCommand, stopCommand) {
+
+}
 function updateProjectFolderPath() {
     var size=projectFolderRecord.length;
     config.projectFolders = [];
@@ -402,8 +494,14 @@ function zoomOut() {
 function loadDefaultValues() {
     if(configFile.has('config')) //When application loads for the first time
         config = configFile.get('config');
-    else
-        configFile.set('config', config);
+        if(!config.languageExtensionMap) {
+          config.languageExtensionMap = defaultConfig.languageExtensionMap;
+          configFile.set('config', config);
+        }
+    else {
+        configFile.set('config', defaultConfig);
+        config = defaultConfig;
+    }
     
     //IO File Path
     inputFile.path = config.inputFilePath;
@@ -422,6 +520,8 @@ function loadDefaultValues() {
         if(fs.existsSync(openProjects[i]))
             addProjectFolder(new ProjectFolderTab(randomIndex++, openProjects[i]));
     console.log(':'+randomIndex);
+
+    languageExtensionMap = config.languageExtensionMap;
 }
 
 function loadJS(file) {
