@@ -2,6 +2,7 @@ $(document).ready(function() {
   
   $('.settings-content').hide();
   $('#edit-build').hide();
+  $('#new-build').hide();
 
   
   $("#extension-chooser-trigger").on('click', () => {
@@ -14,7 +15,7 @@ $(document).ready(function() {
 
     if(displayState == 'block') {
       let html = '';
-      for(let extensionName in languageExtensionMap)
+      for(let extensionName in config.languageExtensionMap)
         html += `<div class="setting-card-dropdown-list-item">${extensionName}</div>`;
       console.log(html);
       $("#extension-chooser-list").html(html);
@@ -66,10 +67,26 @@ const updateExtension = function() {
     stopCommand: stopCommand
   }
 
-  updateSessionData(true);
+  updateSessionData(false);
   alert('Language configurations have been updated.');
+}
 
+const saveNewExtension = function() {
+  const ext = $("#input-ext").val();
+  const resource = $("#input-editorRes").val();
+  const compileCommand = $("#input-compileCommand").val();
+  const runCommand = $("#input-runCommand").val();
+  const stopCommand = $("#input-stopCommand").val();
 
+  config.languageExtensionMap[ext] = {
+    editorRes: resource,
+    compileCommand: compileCommand,
+    runCommand: runCommand,
+    stopCommand: stopCommand
+  }
+
+  updateSessionData(false);
+  alert('Language configurations have been updated.');
 }
 const showSetting = (settingID) => {
   console.log(settingID);
@@ -79,5 +96,6 @@ const showSetting = (settingID) => {
 
 const showSubContent = (contentID) => {
   $(".setting-sub-content").hide();
+  console.log(contentID)
   $(`#${contentID}`).show();
 }

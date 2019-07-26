@@ -154,9 +154,10 @@
               <div id="settings-content-build" class="settings-content">
                 <div class="setting-card">
                   <div class="tab-row">
-                    <div class="tab-row-item">Edit existing extensions</div>
-                    <div class="tab-row-item">New extension</div>
+                    <div class="tab-row-item" onclick="showSubContent('update-build')">Edit existing extensions</div>
+                    <div class="tab-row-item" onclick="showSubContent('new-build')">New extension</div>
                   </div>
+
                   <div class="setting-card-tab-content">
                     <div id="update-build" class="setting-sub-content">
                       <div class="setting-card-dropdown-title" id="extension-chooser-trigger">Choose Extension</div>
@@ -182,6 +183,28 @@
                         </div>
                       </div>
                     </div>
+
+                    <div id="new-build" class="setting-sub-content">
+                      <div class="iopath-input">
+                        <input id="input-ext" class="iopath-input-widget iopath-text" placeholder="Enter Editor Extension">
+                      </div>
+                      <div class="iopath-input">
+                        <input id="input-editorRes" class="iopath-input-widget iopath-text" placeholder="Enter Editor Resource Path">
+                      </div>
+                      <div class="iopath-input">
+                        <input id="input-compileCommand" class="iopath-input-widget iopath-text" placeholder="Enter Compile Command">
+                      </div>
+                      <div class="iopath-input">
+                        <input id="input-runCommand" class="iopath-input-widget iopath-text" placeholder="Enter Run Command">
+                      </div>
+                      <div class="iopath-input">
+                        <input id="input-stopCommand" class="iopath-input-widget iopath-text" placeholder="Enter Stop Command">
+                      </div>
+                      <div class="iopath-input">
+                        <div class="iopath-save" onclick="saveNewExtension()">SAVE</div>
+                      </div>
+                    </div>
+                      
                   </div>
                  
                 </div>

@@ -3,13 +3,13 @@ const configFile = require('electron-json-config');
 
 //Default Configs
 var defaultConfig = {
-    "startup":"true",
+    "startup": true,
     
     "inputFilePath":"",
     "outputFilePath":"",
     "defaultLanguageExtension": "java",
     
-    "curZoom":"1",
+    "curZoom": 1,
     
     "projectFolders": [],
 
@@ -56,28 +56,24 @@ var isCtrl = false;
 
 var randomIndex = 0;
 
-var curLang = {};
-var languageExtensionMap = {};
+var config = {};
 
-function initialise() {
-    loadDefaultValues();
+async function initialise() {
+    config = await loadDefaultValues();
     initialiseSidebar();
-    
+
     //First startup
     if(config.startup) {
-        showSettings(true);
-        config.startup = false;
-        updateSessionData(false);
+      showSettings(true);
+      config.startup = ob.startup = false;
+      updateSessionData(false);
     }
-    showSettings(true);
+
     //Set default state of IO Panel
     showIOPanel(ioPanelIsVisible);
 
     //Set default state of Editor
     showEditor(isEditorVisible);
-
-    //Default Language Mode
-    curLang = getLanguage('java');
 
     //Style: IO-Content
     var ta = document.getElementsByClassName('IO-Content');
@@ -157,6 +153,7 @@ function initialise() {
             timer = setTimeout(function() {
                 if(isHovering( $('#runBtn') ))
                     showElementName(e, 'Execute');                
+
             }, 1000)
         }, function(){
         });
@@ -218,8 +215,6 @@ function initialise() {
             $("#inputTab").text(data);
         });
     
-    //Set default zoom value
-    // webFrame.setZoomFactor(curZoom);
 
 }
 function isHovering(selector) {
@@ -390,6 +385,7 @@ function showSettings(state) {
     }
 }
 function updateSessionData(notifyUpdate) {
+   if(config.startup == undefined) config.startup = false;
     configFile.set('config', config);
     if(notifyUpdate)
         console.log('Settings updated successfully');
@@ -438,39 +434,38 @@ function zoomOut() {
     updateSessionData(false);        
 }
 function loadDefaultValues() {
-    if(configFile.has('config')) { //When application loads for the first time
-      config = configFile.get('config');
-      for(let key in defaultConfig)
-        if(!config[key]) config[key] = defaultConfig[key];
-      configFile.set('config', config);
-      
-      if(!config.languageExtensionMap) {
-        config.languageExtensionMap = defaultConfig.languageExtensionMap;
+      let ob = {}; 
+      if(configFile.has('config')) { //When application loads for the first time
+        ob = configFile.get('config');
+        for(let key in defaultConfig)
+          if(ob[key] == undefined) ob[key] = defaultConfig[key];
+      } else {
+        ob = defaultConfig;
       }
-    } else {
-      configFile.set('config', defaultConfig);
-      config = defaultConfig;
-    }
-    
-    //IO File Path
-    inputFile.path = config.inputFilePath;
-    $('#input-InputPath').val(inputFile.path);
-    
-    outputFile.path = config.outputFilePath;
-    $('#input-OutputPath').val(outputFile.path);
+      
+      //IO File Path
+      inputFile.path = ob.inputFilePath;
+      $('#input-InputPath').val(inputFile.path);
+      
+      outputFile.path = ob.outputFilePath;
+      $('#input-OutputPath').val(outputFile.path);
+  
+      //Zoom Level
+      curZoom = ob.curZoom;
+      webFrame.setZoomFactor(curZoom); //Set default zoom value
+  
+      //Project Folders
+      var openProjects = ob.projectFolders;
+      var size = openProjects.length;
+      for(var i=0;i<size;i++)
+          if(fs.existsSync(openProjects[i]))
+              addProjectFolder(new ProjectFolderTab(randomIndex++, openProjects[i]));
+      
 
-    //Zoom Level
-    curZoom = config.curZoom;
-
-    //Project Folders
-    var openProjects = config.projectFolders;
-    var size = openProjects.length;
-    for(var i=0;i<size;i++)
-        if(fs.existsSync(openProjects[i]))
-            addProjectFolder(new ProjectFolderTab(randomIndex++, openProjects[i]));
-    console.log(':'+randomIndex);
-
-    languageExtensionMap = config.languageExtensionMap;
+      
+      
+      return Promise.resolve(ob);
+      
 }
 
 function loadJS(file) {
