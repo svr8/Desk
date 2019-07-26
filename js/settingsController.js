@@ -32,6 +32,17 @@ $(document).ready(function() {
     onExtensionSelect(ext);
   });
 
+  $("#setting-tab-ext").click(function() {
+    loadExtensions();
+  });
+
+  $("#settings-content-ignore-files .setting-card-dropdown-list .setting-card-dropdown-list-item").click(function() {
+    const ext = $(this).html();
+    const index = config.ignoreFileList.indexOf(ext);
+    config.ignoreFileList.splice(index, 1);
+    loadExtensions();
+  })
+
 
 });
 
@@ -98,4 +109,23 @@ const showSubContent = (contentID) => {
   $(".setting-sub-content").hide();
   console.log(contentID)
   $(`#${contentID}`).show();
+}
+
+const ignoreExtension = () => {
+  const ext = $("#input-ignoreExtension").val();
+  config.ignoreFileList.push(ext);
+  loadExtensions();  
+}
+
+const loadExtensions = () => {
+  let html = "";
+  for(let i=0;i<config.ignoreFileList.length;i++)
+    html += '<div class="setting-card-dropdown-list-item">' + config.ignoreFileList[i] + '</div>';
+
+  $("#settings-content-ignore-files .setting-card-dropdown-list").html(html);
+}
+
+const saveIgnoreExtension = () => {
+  updateSessionData(false);
+  alert('Ignore File-Extension list updated successfully.')
 }

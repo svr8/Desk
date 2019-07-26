@@ -5,8 +5,8 @@ const configFile = require('electron-json-config');
 var defaultConfig = {
     "startup": true,
     
-    "inputFilePath":"",
-    "outputFilePath":"",
+    "inputFilePath":"in.txt",
+    "outputFilePath":"out.txt",
     "projectFolders": [],
     "ignoreFileList": [
       "class",

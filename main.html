@@ -126,6 +126,8 @@
             <div class="settings-sidemenu">
               <div class="settings-sidemenu-tab" onclick='showSetting("settings-content-io")'>IO Files</div>
               <div class="settings-sidemenu-tab" onclick='showSetting("settings-content-build")'>Build Commands</div>
+              <div id="setting-tab-ext" class="settings-sidemenu-tab" onclick='showSetting("settings-content-ignore-files")'>Ignore Files</div>
+
               <div class="settings-sidemenu-tab" onclick='showSetting("settings-content-help")'>Help</div>
               <div class="settings-sidemenu-tab" onclick='showSetting("settings-content-about")'>About</div>
 
@@ -208,6 +210,29 @@
                   </div>
                  
                 </div>
+              </div>
+
+              <!-- Ignore Files -->
+              <div id="settings-content-ignore-files" class="settings-content">
+                <div class="setting-card">
+                 
+                  <div class="iopath-input">
+                    <input id="input-ignoreExtension" class="iopath-input-widget iopath-text" placeholder="Enter New Extension">
+                    <div class="iopath-input-widget iopath-fetchbtn" id="addExt" onclick="ignoreExtension()">Add Extension</div>
+
+                    <div class="setting-card-dropdown-list">
+                      <div class="setting-card-dropdown-list-item">class</div>
+                      <div class="setting-card-dropdown-list-item">out</div>
+                    </div>
+                    
+                  </div>
+                 
+                  <div class="iopath-input">
+                    <div class="iopath-save" onclick="saveIgnoreExtension">SAVE</div>
+                  </div>
+
+                </div>
+                
               </div>
             </div>
           </div>

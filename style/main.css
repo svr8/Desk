@@ -506,6 +506,13 @@ body
 #settings-content-build .setting-card {
   height: 500px;
 }
+#settings-content-ignore-files .setting-card {
+  height: 400px;
+}
+#addExt {
+  width: 200px;
+}
+
 .iopath-input {
   position: relative;
   top: 10px;
@@ -514,6 +521,9 @@ body
   height: auto;
 
   font-family: Data;
+}
+#settings-content-ignore-files .iopath-input:last-child {
+  top: 60px;
 }
 
 .iopath-input-widget {
@@ -558,7 +568,7 @@ body
 }
 .iopath-save {
   position: relative;
-  top: 15px;
+  top: 5px;
   left: 30%;
   width: 50%;
   height: auto;
@@ -635,7 +645,7 @@ body
   padding: 10px;
   transition: 0.15s;
 }
-.setting-card-dropdown-list-item:hover {
+.setting-card-dropdown-list .setting-card-dropdown-list-item:hover {
   cursor: pointer;
   background-coloR: rgb(97, 97, 97);
 }
