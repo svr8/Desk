@@ -1,7 +1,7 @@
 {
   "name": "Desk",
   "productName": "Desk",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Light-weight IDE",
   "main": "main.js",
   "scripts": {
