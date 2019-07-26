@@ -32,7 +32,7 @@ function fileRead(file, callback) {
     //Update Status
     console.log('Reading File');
     if (!fs.existsSync(file.path)) {
-        alert('File not found!');
+        alert(`${file.path} not found!`);
         return;
     }
     fs.readFile(file.path, 'utf-8', (err, data) => {

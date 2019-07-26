@@ -52,6 +52,15 @@ You might face installation issues. If the above fails, this should work:<br/>
 ## Build
 Please refer to the tutorial on [electron-installer-debian](https://www.christianengvall.se/electron-installer-debian-package/) and [electron-packager](https://www.christianengvall.se/electron-packager-tutorial/).
 
+### Build Linux
+`electron-packager . --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds`
+
+### Build .deb using Build Linux
+`electron-installer-debian --src release-builds/Desk-linux-x64/ --arch amd64 --config debian.json`
+
+### Mac Build
+`electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds`
+
 ## Contribution
 Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages.
 Moreover, there is a custom source-code-editor in pre-alpha stage [here](https://github.com/MFOSSociety/sourcecodearea).

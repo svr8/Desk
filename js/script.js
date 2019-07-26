@@ -212,12 +212,16 @@ async function initialise() {
     $("#input-OutputPath").val(outputFile.path);
     
     //Update data if file exists
-    if(fs.existsSync(inputFile.path))
-        fileRead(inputFile, function(data){
-            $("#inputTab").text(data);
-        });
+    if(!fs.existsSync(inputFile.path))
+      inputFile.path = `${__dirname}/in.txt`
     
-
+    if(!fs.existsSync(outputFile.path))
+      outputFile.path = `${__dirname}/out.txt`
+        
+    fileRead(inputFile, function(data){
+      $("#inputTab").text(data);
+    });
+    // console.log();
 }
 function isHovering(selector) {
     return $(selector).data('hover')?true:false; //check element for hover property

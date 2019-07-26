@@ -1,5 +1,4 @@
 node_modules
 package-lock.json
-assets
 release-builds
 debian.json

@@ -59,7 +59,10 @@ function run() {
     fileAbsolutePath = replaceAll(fileAbsolutePath, ' ', '\\ ');
     fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
     fileName = replaceAll(fileName, ' ', '\\ ');
-    const command = eval('`' + curLang.runCommand + '`');    execute(command, function(error, stderr, stdout) {
+    const command = eval('`' + curLang.runCommand + '`'); 
+    outputFile.data = '';
+    saveFile(outputFile);   
+    execute(command, function(error, stderr, stdout) {
         displayRunResults(error, stderr, stdout);
     });
 }
