@@ -45,8 +45,3 @@ function isValidNewFile(parentFolder, fileName) {
     reloadFolder(parentFolder);
 }
 
-function getExtension(filePath) {
-  let index = filePath.indexOf(".");
-  if(index == -1) return '';
-  return filePath.substring(index+1);
-}

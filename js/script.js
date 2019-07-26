@@ -7,11 +7,13 @@ var defaultConfig = {
     
     "inputFilePath":"",
     "outputFilePath":"",
-    "defaultLanguageExtension": "java",
+    "projectFolders": [],
+    "ignoreFileList": [
+      "class",
+      "out"
+    ],
     
     "curZoom": 1,
-    
-    "projectFolders": [],
 
     "languageExtensionMap": {
       'java': { 
@@ -29,14 +31,14 @@ var defaultConfig = {
       'cpp': { 
         editorRes: 'ace/mode/c_cpp',
         compileCommand: 'g++ -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}',
-        runCommand: '',
-        stopCommand: '',
+        runCommand: '${fileContainerPath}/${fileName}.out',
+        stopCommand: 'pkill ${fileName}.out',
       },
       'py': { 
         editorRes: 'ace/mode/python',
-        compileCommand: '',
-        runCommand: '',
-        stopCommand: '',
+        compileCommand: 'python ${fileAbsolutePath}',
+        runCommand: 'python ${fileAbsolutePath}',
+        stopCommand: 'pkill python',
       },
       'tsx': { 
         editorRes: 'ace/mode/tsx',

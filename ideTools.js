@@ -34,7 +34,6 @@ function compile() {
     fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
     fileName = replaceAll(fileName, ' ', '\\ ');
     const command = eval('`' + curLang.compileCommand + '`');
-
     execute(command, function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout); 
     });
@@ -51,7 +50,6 @@ function run() {
     setLanguage( getExtensionFromName(curFile.path) );
 
     console.log(">RUN")
-    console.log(fileAbsolutePath);
 
     //Status Update    
     $('#outputTab').val('Executing...');
@@ -61,8 +59,7 @@ function run() {
     fileAbsolutePath = replaceAll(fileAbsolutePath, ' ', '\\ ');
     fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
     fileName = replaceAll(fileName, ' ', '\\ ');
-    const command = eval('`' + curLang.runCommand + '`');
-    execute(command, function(error, stderr, stdout) {
+    const command = eval('`' + curLang.runCommand + '`');    execute(command, function(error, stderr, stdout) {
         displayRunResults(error, stderr, stdout);
     });
 }
@@ -77,7 +74,6 @@ function stop() {
     fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
     fileName = replaceAll(fileName, ' ', '\\ ');
     const command = eval('`' + curLang.stopCommand + '`');
-
     execute(command, function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout);
         $('#outputTab').val('Process Stopped!');

@@ -84,8 +84,12 @@ function expandFolder(folder) {
             for(var i=0;i<folder.subFolders.length;i++) 
                 addFolder(subDirContainer, folder.subFolders[i]);
             //FileTabs
-            for(var i=0;i<folder.subFiles.length;i++)
-                addFile(subDirContainer, folder.subFiles[i]);
+            for(var i=0;i<folder.subFiles.length;i++) {
+                let path = folder.subFiles[i].path;
+                let ext = getExtension(path);
+                if(!config.ignoreFileList.includes(ext))
+                  addFile(subDirContainer, folder.subFiles[i]);
+            }
             
             //Toggle Status
             folder.isSubDirectoriesLoaded = true;
