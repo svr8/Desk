@@ -50,7 +50,7 @@ You might face installation issues. If the above fails, this should work:<br/>
 `npm start`
 
 ## Build
-Please refer to the instructions [here](https://www.christianengvall.se/electron-installer-debian-package/).
+Please refer to the tutorial on [electron-installer-debian](https://www.christianengvall.se/electron-installer-debian-package/) and [electron-packager](https://www.christianengvall.se/electron-packager-tutorial/).
 
 ## Contribution
 Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages.

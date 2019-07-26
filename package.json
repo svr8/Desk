@@ -10,7 +10,6 @@
     "pack": "build --dir",
     "dist": "build"
   },
-
   "dest": "release-builds/",
   "icon": "assets/icons/png/256x256.png",
   "categories": [
@@ -53,8 +52,7 @@
   },
   "homepage": "https://github.com/svr8/Desk#readme",
   "devDependencies": {
-    "electron": "^2.0.3",
-    "electron-packager": "^8.1.0"
+    "electron": "^2.0.3"
   },
   "dependencies": {
     "electron-json-config": "^1.5.2"
