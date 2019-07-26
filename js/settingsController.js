@@ -5,6 +5,8 @@ $(document).ready(function() {
 
   
   $("#extension-chooser-trigger").on('click', () => {
+    $("#edit-build").hide();
+
     let displayState = $("#extension-chooser-list").css('display');
     console.log(displayState)
     displayState = displayState=='block' ? 'none' : 'block';
@@ -34,31 +36,40 @@ $(document).ready(function() {
 
 const onExtensionSelect = (ext) => {
   const lang = getLanguage(ext);
+
+  console.log(lang);
+  
   $("#extension-chooser-trigger").html(ext);
   $("#extension-chooser-list").css('display', 'none');
+
+  $("#input-editorRes").val(lang.editorRes);
+  $("#input-compileCommand").val(lang.compileCommand);
+  $("#input-runCommand").val(lang.runCommand);
+  $("#input-stopCommand").val(lang.stopCommand);
   
   $("#edit-build").show();
 }
 
 // TODO
-const onUpdateExtension = function(ext, editorRes, compileCommand, runCommand, stopCommand) {
+const updateExtension = function() {
 
-  languageExtensionMap[ext] = {
-    editorRes: editorRes,
-    shellRes: {
-      getCompileCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
-        return eval(compileCommand);
-      },
+  const ext = $("#extension-chooser-trigger").html();
+  const resource = $("#input-editorRes").val();
+  const compileCommand = $("#input-compileCommand").val();
+  const runCommand = $("#input-runCommand").val();
+  const stopCommand = $("#input-stopCommand").val();
 
-      getRunCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
-        return eval(runCommand);
-      },
-
-      getStopCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
-        return eval(stopCommand);
-      },
-    }
+  config.languageExtensionMap[ext] = {
+    editorRes: resource,
+    compileCommand: compileCommand,
+    runCommand: runCommand,
+    stopCommand: stopCommand
   }
+
+  updateSessionData(true);
+  alert('Language configurations have been updated.');
+
+
 }
 const showSetting = (settingID) => {
   console.log(settingID);

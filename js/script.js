@@ -16,87 +16,33 @@ var defaultConfig = {
     "languageExtensionMap": {
       'java': { 
         editorRes: 'ace/mode/java',
-        shellRes: {
-          getCompileCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
-            return `javac ${fileAbsolutePath}`;
-          },
-    
-          getRunCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
-            return `java -cp ${fileContainerPath} ${fileName} < ${inputFile.path} > ${outputFile.path}`;
-          },
-    
-          getStopCommand: function (fileAbsolutePath, fileContainerPath, fileName) {
-            return 'pkill java';
-          }
-    
-        } 
+        compileCommand: 'javac ${fileAbsolutePath}',
+        runCommand: 'java -cp ${fileContainerPath} ${fileName} < ${inputFile.path} > ${outputFile.path}',
+        stopCommand: 'pkill java',
       },
       'c': { 
         editorRes: 'ace/mode/c_cpp',
-        shellRes: {
-          getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `gcc -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}`;
-          },
-    
-          getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `${fileContainerPath}/${fileName}.out`;
-          },
-    
-          getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `pkill ${fileName}.out`;
-          }
-    
-        }
+        compileCommand: 'gcc -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}',
+        runCommand: '${fileContainerPath}/${fileName}.out',
+        stopCommand: 'pkill ${fileName}.out',
       },
       'cpp': { 
         editorRes: 'ace/mode/c_cpp',
-        shellRes: {
-          getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `g++ -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}`;
-          },
-    
-          getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `${fileContainerPath}/${fileName}.out`;
-          },
-    
-          getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `pkill ${fileName}.out`;
-          }
-    
-        }
+        compileCommand: 'g++ -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}',
+        runCommand: '',
+        stopCommand: '',
       },
       'py': { 
         editorRes: 'ace/mode/python',
-        shellRes: {
-          getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `python ${fileAbsolutePath}`;
-          },
-    
-          getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `python ${fileAbsolutePath}`;
-          },
-    
-          getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return 'pkill python';
-          }
-        }
+        compileCommand: '',
+        runCommand: '',
+        stopCommand: '',
       },
       'tsx': { 
         editorRes: 'ace/mode/tsx',
-        shellRes: {
-          getCompileCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `echo Cannot Compile .tsx`;
-          },
-    
-          getRunCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return `echo Cannot Run .tsx`;
-          },
-    
-          getStopCommand: (fileAbsolutePath, fileContainerPath, fileName) => {
-            return 'echo Cannot Stop .tsx';
-          }
-    
-        }
+        compileCommand: 'echo Cannot Compile .tsx',
+        runCommand: 'echo Cannot Run .tsx',
+        stopCommand: 'echo Cannot Stop .tsx',
       },
     },
 }
@@ -492,15 +438,18 @@ function zoomOut() {
     updateSessionData(false);        
 }
 function loadDefaultValues() {
-    if(configFile.has('config')) //When application loads for the first time
-        config = configFile.get('config');
-        if(!config.languageExtensionMap) {
-          config.languageExtensionMap = defaultConfig.languageExtensionMap;
-          configFile.set('config', config);
-        }
-    else {
-        configFile.set('config', defaultConfig);
-        config = defaultConfig;
+    if(configFile.has('config')) { //When application loads for the first time
+      config = configFile.get('config');
+      for(let key in defaultConfig)
+        if(!config[key]) config[key] = defaultConfig[key];
+      configFile.set('config', config);
+      
+      if(!config.languageExtensionMap) {
+        config.languageExtensionMap = defaultConfig.languageExtensionMap;
+      }
+    } else {
+      configFile.set('config', defaultConfig);
+      config = defaultConfig;
     }
     
     //IO File Path

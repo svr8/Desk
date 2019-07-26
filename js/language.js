@@ -1,5 +1,5 @@
 const getLanguage = extension => {
-  if(languageExtensionMap[extension])
-    return languageExtensionMap[extension];
-  return languageExtensionMap.java;
+  if(config.languageExtensionMap[extension])
+    return config.languageExtensionMap[extension];
+  return config.languageExtensionMap.java;
 }
