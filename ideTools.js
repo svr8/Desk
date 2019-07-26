@@ -15,9 +15,9 @@ $(document).ready(function(){
     });
 });
 function compile() {
-    var fileAbsolutePath = curFile.path,
-        fileContainerPath = getDirectoryParentPath(curFile.path),
-        fileName = curFile.name.substr(0, curFile.name.indexOf("."));
+    var fileAbsolutePath = '"' + curFile.path + '"',
+        fileContainerPath = '"' + getDirectoryParentPath(curFile.path) + '"',
+        fileName = '"' + curFile.name.substr(0, curFile.name.indexOf(".")) + '"';
     //Save current file
     curFile.data = getData();
     saveFile(curFile);
@@ -30,18 +30,16 @@ function compile() {
     showIOPanel(true);
 
     //Execute compile code from "buildFilePath"
-    fileAbsolutePath = replaceAll(fileAbsolutePath, ' ', '\\ ');
-    fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
-    fileName = replaceAll(fileName, ' ', '\\ ');
+
     const command = eval('`' + curLang.compileCommand + '`');
     execute(command, function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout); 
     });
 }
 function run() {
-    var fileAbsolutePath = curFile.path,
-        fileContainerPath = getDirectoryParentPath(curFile.path),
-        fileName = curFile.name.substr(0, curFile.name.indexOf("."));
+    var fileAbsolutePath = '"' + curFile.path + '"',
+      fileContainerPath = '"' + getDirectoryParentPath(curFile.path) + '"',
+      fileName = '"' + curFile.name.substr(0, curFile.name.indexOf(".")) + '"';
    
     //Save input file
     inputFile.data = $('#inputTab').val();
@@ -56,9 +54,7 @@ function run() {
 
     //Show IO Panel
     showIOPanel(true);
-    fileAbsolutePath = replaceAll(fileAbsolutePath, ' ', '\\ ');
-    fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
-    fileName = replaceAll(fileName, ' ', '\\ ');
+
     const command = eval('`' + curLang.runCommand + '`'); 
     outputFile.data = '';
     saveFile(outputFile);   
@@ -67,15 +63,12 @@ function run() {
     });
 }
 function stop() {
-  var fileAbsolutePath = curFile.path,
-    fileContainerPath = getDirectoryParentPath(curFile.path),
-    fileName = curFile.name.substr(0, curFile.name.indexOf("."));
+    var fileAbsolutePath = '"' + curFile.path + '"',
+      fileContainerPath = '"' + getDirectoryParentPath(curFile.path) + '"',
+      fileName = '"' + curFile.name.substr(0, curFile.name.indexOf(".")) + '"';
     console.log('> '+curFile.path)
     setLanguage( getExtensionFromName(curFile.path) );
 
-    fileAbsolutePath = replaceAll(fileAbsolutePath, ' ', '\\ ');
-    fileContainerPath = replaceAll(fileContainerPath, ' ', '\\ ');
-    fileName = replaceAll(fileName, ' ', '\\ ');
     const command = eval('`' + curLang.stopCommand + '`');
     execute(command, function(error, stderr, stdout) {
         displayCompileResults(error, stderr, stdout);
