@@ -457,7 +457,8 @@ function loadDefaultValues() {
       $('#input-OutputPath').val(outputFile.path);
   
       //Zoom Level
-      curZoom = ob.curZoom;
+      curZoom = Number(ob.curZoom);
+      
       webFrame.setZoomFactor(curZoom); //Set default zoom value
   
       //Project Folders
