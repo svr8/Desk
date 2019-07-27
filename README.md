@@ -14,6 +14,10 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 + [Linux(.deb)](https://www.dropbox.com/s/wc6ybs1nfisajcg/desk_1.1.5_amd64.deb?dl=0)
 + [Mac](https://www.dropbox.com/s/dlyraihv8murusg/Desk-darwin-x64.zip?dl=0)
 
+# Instructions
+- For executing Java files, please make sure that the class name that contains `main()` method is same as the filename.
+- In case of custom build paths, configure the ide in settings>build commands.
+
 ## Important Keyboard Shortcuts
 - Ctrl + 1 : Compile
 - Ctrl + 2 : Start Execution
