@@ -54,6 +54,9 @@ Please refer to the tutorial on [electron-installer-debian](https://www.christia
 #### Mac Build
 `electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds`
 
+#### Windows Build
+`electron-builder --windows nsis:ia32`
+
 ## Contribution
 Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages.
 Moreover, there is a custom source-code-editor in pre-alpha stage [here](https://github.com/MFOSSociety/sourcecodearea).
