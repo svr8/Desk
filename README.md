@@ -10,7 +10,7 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 ![Screenshot](https://github.com/svr8/Desk/blob/master/Preview.PNG)
 
 # Downloads
-+ [Windows](https://www.mediafire.com/file/d3nngr143qbjyyc/Desk_Setup_1.1.5.exe/file)
++ [Windows](https://www.dropbox.com/s/tv8rl6djl43kbrp/Desk%20Setup%201.1.5.exe?dl=0)
 + [Linux(.deb)](https://www.dropbox.com/s/wc6ybs1nfisajcg/desk_1.1.5_amd64.deb?dl=0)
 + [Mac](https://www.dropbox.com/s/dlyraihv8murusg/Desk-darwin-x64.zip?dl=0)
 
