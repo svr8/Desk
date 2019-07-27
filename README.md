@@ -14,13 +14,6 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 + [Linux(.deb)](https://www.mediafire.com/file/3szz2rctgt7albx/desk_1.1.5_amd64.deb/file)
 + [Mac](https://www.mediafire.com/file/a7lr7exns3nmw19/Desk-darwin-x64.zip/file)
 
-# Instructions
-## On First Time Startup
-- Create 2 empty files(example: `input.txt`, `output.txt`) anywhere you desire on your computer. These files will be used as input output sources.
-- Go to settings(button on bottom left).
-- You'll see 2 options to set the files. Set them as the files you just created
-- Run the executable file and you're ready to go. No language-specific prequisites as in previous versions. The IDE will automatically detect the file from its file extensions(`.java`, `.c`, `.cpp`, `.py`) and configure itself accordingly.
-
 ## Important Keyboard Shortcuts
 - Ctrl + 1 : Compile
 - Ctrl + 2 : Start Execution
@@ -52,13 +45,13 @@ You might face installation issues. If the above fails, this should work:<br/>
 ## Build
 Please refer to the tutorial on [electron-installer-debian](https://www.christianengvall.se/electron-installer-debian-package/) and [electron-packager](https://www.christianengvall.se/electron-packager-tutorial/).
 
-### Build Linux
+#### Build Linux
 `electron-packager . --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/512x512.png --prune=true --out=release-builds`
 
-### Build .deb using Build Linux
+#### Build .deb using Build Linux
 `electron-installer-debian --src release-builds/Desk-linux-x64/ --arch amd64 --config debian.json`
 
-### Mac Build
+#### Mac Build
 `electron-packager . --overwrite --platform=darwin --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds`
 
 ## Contribution
