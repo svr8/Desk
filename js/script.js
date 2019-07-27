@@ -25,19 +25,19 @@ var defaultConfig = {
       'c': { 
         editorRes: 'ace/mode/c_cpp',
         compileCommand: 'gcc -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}',
-        runCommand: '${fileContainerPath}/${fileName}.out',
+        runCommand: '${fileContainerPath}/${fileName}.out < ${inputFile.path} > ${outputFile.path}',
         stopCommand: 'pkill ${fileName}.out',
       },
       'cpp': { 
         editorRes: 'ace/mode/c_cpp',
         compileCommand: 'g++ -o ${fileContainerPath}/${fileName}.out ${fileAbsolutePath}',
-        runCommand: '${fileContainerPath}/${fileName}.out',
+        runCommand: '${fileContainerPath}/${fileName}.out < ${inputFile.path} > ${outputFile.path}',
         stopCommand: 'pkill ${fileName}.out',
       },
       'py': { 
         editorRes: 'ace/mode/python',
         compileCommand: 'python ${fileAbsolutePath}',
-        runCommand: 'python ${fileAbsolutePath}',
+        runCommand: 'python ${fileAbsolutePath} < ${inputFile.path} > ${outputFile.path}',
         stopCommand: 'pkill python',
       },
       'tsx': { 
