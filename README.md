@@ -60,8 +60,6 @@ Please refer to the tutorial on [electron-installer-debian](https://www.christia
 ## Contribution
 Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages.
 Moreover, there is a custom source-code-editor in pre-alpha stage [here](https://github.com/MFOSSociety/sourcecodearea).
-The [Mac version](https://www.mediafire.com/file/ufkhnlmozw6kvb0/Desk-darwin-x64.zip/file) has got bugs. Need help here too.
-
 # Credits
 Designed By : [Divyakant Singh](https://www.behance.net/divyakantsingh) and [Veer Singh](https://www.instagram.com/weavingweb/) <br/>
 Developed By : Shikhar Vaish ([MIT LICENSE](https://github.com/svr8/Desk/blob/master/LICENSE))
