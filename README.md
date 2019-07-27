@@ -11,8 +11,8 @@ A light-weight ide for competitive programming. The editor uses [ace-editor](htt
 
 # Downloads
 + [Windows](https://www.mediafire.com/file/d3nngr143qbjyyc/Desk_Setup_1.1.5.exe/file)
-+ [Linux(.deb)](https://www.mediafire.com/file/3l4taqh973x8b8z/desk_1.1.5_amd64.deb/file)
-+ [Mac](https://www.mediafire.com/file/laekink77nmws72/Desk-darwin-x64.zip/file)
++ [Linux(.deb)](https://www.dropbox.com/s/wc6ybs1nfisajcg/desk_1.1.5_amd64.deb?dl=0)
++ [Mac](https://www.dropbox.com/s/dlyraihv8murusg/Desk-darwin-x64.zip?dl=0)
 
 ## Important Keyboard Shortcuts
 - Ctrl + 1 : Compile
