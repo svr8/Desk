@@ -1,22 +1,22 @@
 @font-face
 {
     font-family: TitleFont;
-    src: url('../fonts/helvetica-regular.otf');
+    src: url('../assets/fonts/helvetica-regular.otf');
 }
 @font-face
 {
     font-family: DirectoryFont;
-    src: url('../fonts/TitilliumWeb-Regular.ttf');
+    src: url('../assets/fonts/TitilliumWeb-Regular.ttf');
 }
 @font-face
 {
     font-family: IO-Title;
-    src: url('../fonts/Raleway-Regular.ttf');
+    src: url('../assets/fonts/Raleway-Regular.ttf');
 }
 @font-face
 {
     font-family: Data;
-    src: url('../fonts/Roboto-Regular.ttf');
+    src: url('../assets/fonts/Roboto-Regular.ttf');
 }
 body
 {
