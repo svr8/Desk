@@ -223,24 +223,29 @@ async function initialise() {
     });
     // console.log();
 }
+
 function isHovering(selector) {
     return $(selector).data('hover')?true:false; //check element for hover property
 }
+
 jQuery.fn.rotate = function(degrees) {
     $(this).css({'-webkit-transform' : 'rotate('+ degrees +'deg)',
                  '-moz-transform' : 'rotate('+ degrees +'deg)',
                  '-ms-transform' : 'rotate('+ degrees +'deg)',
                  'transform' : 'rotate('+ degrees +'deg)'});
 };
+
 function showElementName(e, name) {
     $('#elementName').html(name);
     $('#elementName').css('left', e.pageX+'px');
     $('#elementName').css('top', e.pageY+'px');
     $('#elementName').fadeIn(150);
 }
+
 function hideElementName() {
     $('#elementName').fadeOut(150);
 }
+
 $(document).ready(function(){
     initialise();
     //MOUSE EVENT LISTENERS:
@@ -390,31 +395,37 @@ function showSettings(state) {
         $(".Sidebar-Button").show();        
     }
 }
+
 function updateSessionData(notifyUpdate) {
    if(config.startup == undefined) config.startup = false;
     configFile.set('config', config);
     if(notifyUpdate)
         console.log('Settings updated successfully');
 }
+
 function getInputFilePath() {
     getFilePath(function(path) {
         $('#input-InputPath').val(path);
     });
 }
+
 function getOutputFilePath() {
     getFilePath(function(path) {
         $('#input-OutputPath').val(path);
     });
 }
+
 function updateIOFilePath() {
     config.inputFilePath = inputFile.path = $('#input-InputPath').val();
     config.outputFilePath = outputFile.path = $('#input-OutputPath').val();
     updateSessionData(true);
     alert('Path has been updated.');
 }
-function updateBuildCommands(ext, compileCommand, runCommand, stopCommand) {
 
+function updateBuildCommands(ext, compileCommand, runCommand, stopCommand) {
+    // TODO
 }
+
 function updateProjectFolderPath() {
     var size=projectFolderRecord.length;
     config.projectFolders = [];
@@ -431,6 +442,7 @@ function zoomIn() {
     config.curZoom = curZoom;
     updateSessionData(false);    
 }
+
 function zoomOut() {
     curZoom = webFrame.getZoomFactor();
     curZoom -= changeZoomBy;
@@ -439,6 +451,7 @@ function zoomOut() {
     config.curZoom = curZoom;
     updateSessionData(false);        
 }
+
 function loadDefaultValues() {
       let ob = {}; 
       if(configFile.has('config')) { //When application loads for the first time
@@ -468,11 +481,7 @@ function loadDefaultValues() {
           if(fs.existsSync(openProjects[i]))
               addProjectFolder(new ProjectFolderTab(randomIndex++, openProjects[i]));
       
-
-      
-      
       return Promise.resolve(ob);
-      
 }
 
 function loadJS(file) {
