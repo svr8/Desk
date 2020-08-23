@@ -62,7 +62,7 @@ Please refer to the tutorial on [electron-installer-debian](https://www.christia
 `electron-builder --windows nsis:ia32`
 
 ## Contribution
-Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages.
+Feel free to fork and send PRs or even open issues. Please send any feature requests as issues too. It would be great if you can help in adding support for more languages. Checkout [Wiki](https://github.com/svr8/Desk/wiki) for detailed information.
 Moreover, there is a custom source-code-editor in pre-alpha stage [here](https://github.com/MFOSSociety/sourcecodearea).
 # Credits
 Designed By : [Divyakant Singh](https://www.behance.net/divyakantsingh) and [Veer Singh](https://www.instagram.com/weavingweb/) <br/>
