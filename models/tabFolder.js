@@ -1,7 +1,3 @@
-var slideAnimationSpeed = 60;
-var folderRecord = [];
-var curFolder = null;
-
 function FolderTab(id, absolutePath) {
     this.id = id;
     this.path = absolutePath;

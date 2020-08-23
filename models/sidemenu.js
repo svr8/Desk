@@ -1,9 +1,5 @@
-var sidemenu = [
-    new SideMenu("CurrentFolder"),
-    new SideMenu("OpenFolders")
-];
-
-var nSideMenu = 2;
-var nullSideMenu = new SideMenu('NullSideMenu', '');
-var curSideMenu = nullSideMenu;
-var sideMenuIsVisible = true;
+function SideMenu(id) {
+  this.id = id;
+  this.toggleBtnId = 'sidebar-' + this.id;
+  this.isSelected = false;
+}

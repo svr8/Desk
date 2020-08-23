@@ -1,9 +1,3 @@
-function SideMenu(id) {
-  this.id = id;
-  this.toggleBtnId = 'sidebar-' + this.id;
-  this.isSelected = false;
-}
-
 function initialiseSideMenu(menu) {
   $('#' + menu.toggleBtnId).on("click", function () {
       // If menu wasn't already selected

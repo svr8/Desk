@@ -1,4 +1,3 @@
-var projectFolderRecord = [];
 function ProjectFolderTab(id, absolutePath) {
     this.id = id;
     this.path = absolutePath;
