@@ -44,7 +44,7 @@ body
 	left: 35%;
 	width: 550px;
 	height: 180px;
-	background-image: url('../images/bkg.png');
+	background-image: url('../assets/images/bkg.png');
 	background-size: cover;
 
 }
@@ -107,53 +107,53 @@ body
 {
     position: absolute;
     top: calc(100% - 45px);
-    background-image: url('../images/Settings-Def.png');
+    background-image: url('../assets/images/Settings-Def.png');
 }
 #sidebar-Settings:hover
 {
-    background-image: url('../images/Settings-Sel.png');
+    background-image: url('../assets/images/Settings-Sel.png');
 }
 
 #sidebar-CurrentFolder
 {
-    background-image: url('../images/sidebar-CurrentFolder-Def.png');
+    background-image: url('../assets/images/sidebar-CurrentFolder-Def.png');
 }
 #sidebar-CurrentFolder:hover
 {
-    background-image: url('../images/sidebar-CurrentFolder-Sel.png');
+    background-image: url('../assets/images/sidebar-CurrentFolder-Sel.png');
 }
 #sidebar-OpenFolders
 {
-    background-image: url('../images/sidebar-OpenFolders-Def.png');
+    background-image: url('../assets/images/sidebar-OpenFolders-Def.png');
 }
 #sidebar-OpenFolders:hover
 {
-    background-image: url('../images/sidebar-OpenFolders-Sel.png');
+    background-image: url('../assets/images/sidebar-OpenFolders-Sel.png');
 }
 
 #compileBtn
 {
-    background-image: url('../images/Compile-Def.png');
+    background-image: url('../assets/images/Compile-Def.png');
 }
 #runBtn
 {
-    background-image: url('../images/Run-Def.png');
+    background-image: url('../assets/images/Run-Def.png');
 }
 #stopBtn
 {
-    background-image: url('../images/Stop-Def.png');
+    background-image: url('../assets/images/Stop-Def.png');
 }
 #compileBtn:hover
 {
-    background-image: url('../images/Compile-Sel.png');
+    background-image: url('../assets/images/Compile-Sel.png');
 }
 #runBtn:hover
 {
-    background-image: url('../images/Run-Sel.png');
+    background-image: url('../assets/images/Run-Sel.png');
 }
 #stopBtn:hover
 {
-    background-image: url('../images/Stop-Sel.png');
+    background-image: url('../assets/images/Stop-Sel.png');
 }
 .Prompt
 {
@@ -388,19 +388,19 @@ body
 }
 #create-new-file 
 {
-    background-image: url('../images/CreateNewFile-Def.png');
+    background-image: url('../assets/images/CreateNewFile-Def.png');
 }
 #create-new-file:hover
 {
-    background-image: url('../images/CreateNewFile-Sel.png');    
+    background-image: url('../assets/images/CreateNewFile-Sel.png');    
 }
 #create-new-folder
 {
-    background-image: url('../images/CreateNewFolder-Def.png');
+    background-image: url('../assets/images/CreateNewFolder-Def.png');
 }
 #create-new-folder:hover
 {
-    background-image: url('../images/CreateNewFolder-Sel.png');
+    background-image: url('../assets/images/CreateNewFolder-Sel.png');
 }
 
 #FolderContainer

@@ -10,7 +10,7 @@
 
     display: inline-block;
 
-    background-image: url('../images/Button-CloseTab-Def.png');
+    background-image: url('../assets/images../images/Button-CloseTab-Def.png');
     background-size: cover;
     /* transition: 0.1s; */
 }
@@ -32,11 +32,11 @@
     height: 20px;
     border: none;
     background-color: transparent;
-    background-image: url('../images/Button-CloseTab-Sel.png');
+    background-image: url('../assets/images../images/Button-CloseTab-Sel.png');
 }
 .Button-CloseTab:hover
 {
-    background-image: url('../images/Button-CloseTab-Sel.png');    
+    background-image: url('../assets/images../images/Button-CloseTab-Sel.png');    
 }
 
 .Button-ToggleFolder
@@ -52,7 +52,7 @@
     display: inline-block;
     transition: 0.2s;
 
-    background-image: url('../images/Button-ToggleFolder.png');
+    background-image: url('../assets/images../images/Button-ToggleFolder.png');
     background-size: cover;
 }
 /* .Button-ToggleFolder:first-child
