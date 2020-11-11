@@ -52,7 +52,7 @@
   },
   "homepage": "https://github.com/svr8/Desk#readme",
   "devDependencies": {
-    "electron": "^2.0.3"
+    "electron": "^9.1.0"
   },
   "dependencies": {
     "electron-json-config": "^1.5.2"
